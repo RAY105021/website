@@ -1,0 +1,73 @@
+
+<html>
+
+<!-- Mirrored from en.lasertek.com.tw/module17.asp by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 14 Nov 2014 07:26:22 GMT -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=big5" />
+
+<meta name="keywords" content="雷射,雷科"  />
+
+<script type="text/javascript" src="../apis.google.com/js/plusone.js"></script>
+<title>Forget Password?-lasertek 雷科股份有限公司</title>
+<style type="text/css">
+<!--
+	body{
+		margin-top:0pt; 
+		margin-left:0pt; 
+		margin-bottom:0pt; 
+		margin-right:0pt;
+	}
+	td{
+		font-family: 新細明體;
+		color:#666666; 
+		font-size:9pt;
+	}
+	
+-->
+</style>
+</head>
+
+<body>
+    <script>
+	    function check1(){
+		    if (document.form2.mem_id.value==""){
+			    alert("Please enter the Account ID!");
+			    document.form2.mem_id.focus();
+		    }
+		    else if (document.form2.tel.value==""){
+			    alert("Please enter the Tel!");
+			    document.form2.tel.focus();
+		    } 
+		    else{
+			    document.form2.submit();
+		    }
+	    }
+    </script>
+<table cellpadding="0" cellspacing="0" border="0" width="500" align="center" background="../cocker-style.cocker.com.tw/images/member_add/password-bg.jpg">
+	<tr>
+		<td height="300" valign="top">
+		<table width="300" border="0" align="center" cellpadding="0" cellspacing="0" style="margin-top:70px;">
+		<form name="form2" method="post" action="http://en.lasertek.com.tw/forget_mail.aspx">
+			<tr>
+				<td width="300" height="35" align="center">please enter the information below, we will send you new password by eMail.</td>
+			</tr>
+			<tr>
+			  <td height="35" align="center">Account ID：
+		      <input name="mem_id" type="text" id="mem_id" size="20" maxlength="15"></td>
+			</tr>
+			<tr>
+			  <td height="35" align="center">Tel：
+		      <input name="tel" type="text" id="tel" size="20" maxlength="15"></td>
+			</tr>
+			<tr>
+			  <td height="35" align="center"><input name="btn1" type="button" id="btn1" onClick="check1();" value="Submit" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input name="btn2" type="button" id="btn2" onClick="document.form2.reset();" value="Reset" /></td>
+			</tr>
+		</form>
+		</table>
+		</td>
+	</tr>
+</table>
+</body>
+
+<!-- Mirrored from en.lasertek.com.tw/module17.asp by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 14 Nov 2014 07:26:22 GMT -->
+</html>

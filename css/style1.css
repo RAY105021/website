@@ -1,0 +1,105 @@
+/* CSS Document */
+body { font-family:  "Helvetica Neue", Helvetica, Arial, "微軟正黑體","Microsoft YaHei", "微软雅黑", "メイリオ", "맑은 고딕", sans-serif,STHeiti,SimSun;
+	   margin:0px 0px 0px 0px;
+     }
+*{ margin:0; padding:0;}
+img{border:none;}
+a {text-decoration:none;}
+a:active {text-decoration:none;}
+a:link  {text-decoration:none;}
+a:visited {text-decoration:none;}
+a:hover {text-decoration:none;}
+#left,#center,#right{ margin-bottom:-40000px; padding-bottom:40000px;}
+#wrap{ overflow:hidden;}
+
+#head{ float:left; text-align:left;}
+#hd_logo{position:relative; z-index:2;}
+#hd_marquee{position:relative; z-index:5;}
+#aumenu{position:relative; z-index:4;}
+
+#left{float:left; text-align:left; }
+#left_login{	position:relative; }
+#left_cont{	position:relative; }
+#left_vh{position:relative; }
+#msn{position:relative;}
+#left_vh2{position:relative; }
+#left_menu{position:relative; }
+
+#right{ float:right; text-align:left;}
+
+#center{ float:left; text-align:left;}
+#sub_title{	position:relative;}
+#sub_title2{position:relative;}
+#cont{position:relative;height:auto!important;min-height:360px;}
+#road{position:relative;font-size:9pt;}
+#road a{font-size:9pt;	}
+#banner{position:relative;}
+
+#foot{ float:left;  text-align:left;}
+
+
+/*CSR���~���|�d��-�Q�`���Y�H*/
+
+.tk_all {
+	width: 95%;
+	font-size: 1em;
+	margin: 35px 0;
+}
+
+.tk_all h3 {
+	color: #002CFF;
+	margin: 20px 0 0 0;
+}
+
+
+
+.tk_all table {
+	border:1px solid #fff;
+	margin: 10px 0;
+}
+
+.tk_all table th {
+	border:1px solid #fff;
+	background-color: #ffa800;
+	padding: 10px 5px;
+	text-align: center;
+	color: #000;
+}
+
+.tk_all table td {
+	border:1px solid #fff;
+	background-color: #d6d6d6;
+	padding: 10px;
+	text-align: center;
+	color:#000;
+	
+}
+
+.tk_all ul {
+	margin: 0 0 0 15px;
+}
+
+.tk_all li {
+	text-align:left;
+}
+
+/*�@�����O*/
+.fw900 {
+	font-weight: 900;
+	font-size: 1.02em;
+}
+.red12 {
+	color:#f00;
+}
+
+
+/*----最新消息---*/
+.news p {
+	
+	margin: 15px 0;
+
+.news img {
+	width: 100%;
+	margin: 15px 0;
+}
+}

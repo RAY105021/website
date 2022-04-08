@@ -1,0 +1,2721 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+<!-- saved from url=(0022)http://internet.e-mail -->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html>
+<!-- Mirrored from lasertek2.cocker.com.tw/upload/hr.htm by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 14 Nov 2014 06:31:07 GMT -->
+<head>
+<style type="text/css">
+
+input.groovybutton
+{
+   font-size:12px;
+   font-family:Verdana,sans-serif;
+   font-weight:bold;
+   color:#888888;
+   width:100px;
+   height:25px;
+   background-color:#EEEEEE;
+   border-style:solid;
+   border-color:#BBBBBB;
+   border-width:1px;
+}
+
+</style>
+<Script Language="VBScript"> 
+dim blnError, h_blnError, u_blnError, g_blnError, o_blnError
+blnError_name = false
+blnError_id = false
+blnError_tel = false
+h_blnError = false
+c_blnError = false
+u_blnError = false
+g_blnError = false
+o_blnError = false
+blnError_school = false
+
+sub name_ch_b1()
+    if document.all("name_ch").value = "" then
+       msgbox "請輸您的大名",48,"警告"
+       blnError_name = true
+    else
+       blnError_name = false   
+    end if
+end sub
+sub id_no_b1()
+if len( document.all("id_no").value) <> 10 then
+   msgbox "請輸入正確的身分證字號格式",48,"警告"
+   blnError_id = true
+else
+   if IsNumeric(left(document.all("id_no").value,1)) then
+      msgbox "請輸入正確的身分證字號格式",48,"警告"
+      blnError_id = true
+   else
+      if IsNumeric(right(document.all("id_no").value,9)) then
+         document.all("id_no").value = Ucase(document.all("id_no").value)
+         blnError_id = false   
+      else
+         msgbox "請輸入正確的身分證字號格式",48,"警告"
+         blnError_id = true
+      end if
+   end if
+end if
+end sub
+sub tel_b1()
+    if document.all("tel_day").value = "" and document.all("tel_night").value = "" and document.all("mobile").value = "" then
+       msgbox "請輸入任一聯絡電話",48,"警告"
+       blnError_tel = true
+    else
+       blnError_tel = false   
+    end if
+end sub
+sub address_b1()
+if document.all("address_choice").checked = true then
+   document.all("address_2").value = document.all("address_1").value
+end if
+end sub
+sub employee_c1()
+    document.all("recommend_0").value = ""
+    document.all("recommend_1").value = ""
+    document.all("recommend_2").value = ""
+    document.all("service_1").value = ""
+    document.all("service_2").value = ""
+    document.all("title_1").value = ""
+    document.all("title_2").value = ""
+    document.all("email_1").value = ""
+    document.all("email_2").value = ""
+end sub
+sub recommend_1_c()
+    document.all("recommend_1").value = document.all("recommend_0").value
+end sub
+sub school_b1()
+if document.all("high_school").value <> "" then
+h_status = false
+h_time = false
+     if document.all("h_complete_status")(0).checked or document.all("h_complete_status")(1).checked  then
+        h_status = false
+     else
+        msgbox "請輸入就讀的高中是否畢業",48,"警告"
+        h_status = true
+     end if
+     if document.all("h_time")(0).checked or document.all("h_time")(1).checked  then
+        h_time = false
+     else
+        msgbox "請輸入就讀的高中為日間部或夜間部",48,"警告"
+        h_time = true
+     end if
+     if h_status = false and h_time = false then
+        h_blnError = false
+     else
+        h_blnError = true
+     end if
+else
+   h_blnError = false
+end if
+if document.all("college").value <> "" then
+c_status = false
+c_time = false
+     if document.all("c_complete_status")(0).checked or document.all("c_complete_status")(1).checked  then
+        c_status = false
+     else
+        msgbox "請輸入就讀的專科是否畢業",48,"警告"
+        c_status = true
+     end if
+     if document.all("c_time")(0).checked or document.all("c_time")(1).checked  then
+        c_time = false
+     else
+        msgbox "請輸入就讀的專科為日間部或夜間部",48,"警告"
+        c_time = true
+     end if
+     if c_status = false and c_time = false then
+        c_blnError = false
+     else
+        c_blnError = true
+     end if
+else
+   c_blnError = false
+end if
+if document.all("university").value <> "" then
+u_status = false
+u_time = false
+     if document.all("u_complete_status")(0).checked or document.all("u_complete_status")(1).checked  then
+        u_status = false
+     else
+        msgbox "請輸入就讀的大學是否畢業",48,"警告"
+        u_status = true
+     end if
+     if document.all("u_time")(0).checked or document.all("u_time")(1).checked  then
+        u_time = false
+     else
+        msgbox "請輸入就讀的大學為日間部或夜間部",48,"警告"
+        u_time = true
+     end if
+     if u_status = false and u_time = false then
+        u_blnError = false
+     else
+        u_blnError = true
+     end if
+else
+   u_blnError = false
+end if
+if document.all("graduated").value <> "" then
+g_status = false
+g_time = false
+     if document.all("g_complete_status")(0).checked or document.all("g_complete_status")(1).checked  then
+        g_status = false
+     else
+        msgbox "請輸入就讀的研究所是否畢業",48,"警告"
+        g_status = true
+     end if
+     if document.all("g_time")(0).checked or document.all("g_time")(1).checked  then
+        g_time = false
+     else
+        msgbox "請輸入就讀的研究所為日間部或夜間部",48,"警告"
+        g_time = true
+     end if
+     if g_status = false and g_time = false then
+        g_blnError = false
+     else
+        g_blnError = true
+     end if
+else
+   g_blnError = false
+end if
+
+if h_blnError = false and c_blnError = false and u_blnError = false and g_blnError = false then
+   blnError_school = false
+else
+  blnError_school = true
+end if
+end sub
+</script>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=big5">
+<title>線上履歷表</title>
+</head>
+<body>
+<Script Language="VBScript"> 
+
+function check()
+
+call school_b1()
+if blnError_school = true then
+   window.event.returnvalue=false
+end if
+call name_ch_b1()
+if blnError_name = true then
+   window.event.returnvalue=false
+end if
+call id_no_b1()
+if blnError_id = true then
+   window.event.returnvalue=false
+end if
+call tel_b1()
+if blnError_tel = true then
+   window.event.returnvalue=false
+end if
+
+if blnError_id = true or blnError_name = true or blnError_tel = true or blnError_school = true then
+   window.event.returnvalue=false
+else
+   Response = msgbox("是否確定送出履歷",vbOKCancel)
+   if Response = vbOK then
+      form1.submit
+   end if
+end if
+end function
+
+
+</script>
+<form action="mailto:hr@lasertek.com.tw?subject=從雷科線上履歷寄出之個人履歷表" method="post" enctype="text/plain" name="form1">
+  <div align="center">
+  <table width="70%" align="center" cellpadding="0" cellspacing="0">
+    <tr>
+      <td width="10" background="../imageV2/shadow_06.html"><img src="../imageV2/space_12.html" width="10" height="10"></td>
+      <td width="819"><table width="850" cellspacing="0" cellpadding="0">
+        <tr>
+          <td colspan="2"><p>&nbsp;</p>
+          </td>
+        </tr>
+        <tr>
+          <td height="18" colspan="2" valign="top">
+          <table width="100%" border="1" align="center" cellpadding="2" cellspacing="0" bordercolor="82a0df">
+            <tr>
+                    <td height="30" colspan="7" bgcolor="#CAE2FF"> 
+                      <div align="center"><font size="5"><strong>線 上 履 歷 表</strong></font></div></td>
+              </tr>
+            <tr>
+              <td width="15%"><font size="2">應徵工作項目</font></td>
+              <td colspan="4" width="45%"><font size="2">
+                      <input name="應徵工作項目1" type="text" id="應徵工作項目1" maxlength="20">
+                      &nbsp;&nbsp;&nbsp;或&nbsp;&nbsp;&nbsp;
+                      <input name="應徵工作項目2" type="text" id="應徵工作項目2" size="20" maxlength="20">
+              </font></td>              <td width="15%"><font size="2">身份證字號</font></td>
+               <td><font size="2">
+                      <input name="身份證字號" type="text" id="身份證字號" onChange="id_no_b1()" size="20" maxlength="10">
+              </font></td>
+              </tr>
+            <tr>
+              <td><font size="2">中文姓名</font></td>
+              <td><font size="2">
+                      <input name="中文姓名" type="text" id="中文姓名" onChange="name_ch_b1()" size="20" maxlength="4">
+              </font></td>
+              <td><font size="2">英文姓名</font></td>
+              <td colspan="4"><font size="2">
+                      <input name="英文姓名" type="text" id="英文姓名" size="20" >
+              </font></td>
+              </tr>
+            <tr>
+              <td><font size="2">性 別</font></td>
+              <td width="134"><font size="2">
+                      <select name="性 別" size="1" id="性 別">
+                        <option selected value=""></option>
+                  <option value="男">男</option>
+                  <option value="女">女</option>
+                </select>
+              </font></td>
+              <td width="139"><font size="2">身高 / 體重</font></td>
+              <td colspan="4"><font size="2">
+                      <input name="身高" type="text" id="身高" size="3" maxlength="3">
+  公分
+                      <input name="體重" type="text" id="體重" size="3" maxlength="3">
+  公斤</font></td>
+              </tr>
+            <tr>
+              <td><font size="2">出生年月日</font></td>
+              <td colspan="6"><font size="2">民國
+                      <select name="出生年" id="出生年" >
+                        <option selected value=""></option>
+                  <option value="46">46</option>
+                  <option value="47">47</option>
+                  <option value="48">48</option>
+                  <option value="49">49</option>
+                  <option value="50">50</option>
+                  <option value="51">51</option>
+                  <option value="52">52</option>
+                  <option value="53">53</option>
+                  <option value="54">54</option>
+                  <option value="55">55</option>
+                  <option value="56">56</option>
+                  <option value="57">57</option>
+                  <option value="58">58</option>
+                  <option value="59">59</option>
+                  <option value="60">60</option>
+                  <option value="61">61</option>
+                  <option value="62">62</option>
+                  <option value="63">63</option>
+                  <option value="64">64</option>
+                  <option value="65">65</option>
+                  <option value="66">66</option>
+                  <option value="67">67</option>
+                  <option value="68">68</option>
+                  <option value="69">69</option>
+                  <option value="70">70</option>
+                  <option value="71">71</option>
+                  <option value="72">72</option>
+                  <option value="73">73</option>
+                  <option value="74">74</option>
+                  <option value="75">75</option>
+                  <option value="76">76</option>
+                  <option value="77">77</option>
+                  <option value="78">78</option>
+                  <option value="79">79</option>
+                  <option value="80">80</option>
+                  <option value="81">81</option>
+                  <option value="82">82</option>
+                  <option value="83">83</option>
+                  <option value="84">84</option>
+                  <option value="85">85</option>
+                </select>
+年
+                      <select name="出生月" id="出生月">
+                        <option selected value=""></option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                </select>
+月
+                      <select name="出生日" id="出生日" >
+                        <option selected value=""></option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                  <option value="13">13</option>
+                  <option value="14">14</option>
+                  <option value="15">15</option>
+                  <option value="16">16</option>
+                  <option value="17">17</option>
+                  <option value="18">18</option>
+                  <option value="19">19</option>
+                  <option value="20">20</option>
+                  <option value="21">21</option>
+                  <option value="22">22</option>
+                  <option value="23">23</option>
+                  <option value="24">24</option>
+                  <option value="25">25</option>
+                  <option value="26">26</option>
+                  <option value="27">27</option>
+                  <option value="28">28</option>
+                  <option value="29">29</option>
+                  <option value="30">30</option>
+                  <option value="31">31</option>
+                </select>
+日 </font></td>
+              </tr>
+            <tr>
+              <td><font size="2">血 型</font></td>
+              <td><font size="2">
+                      <select name="血 型" id="血 型">
+                        <option selected value=""></option>
+                  <option value="A型">A 型</option>
+                  <option value="B型">B 型</option>
+                  <option value="O型">O 型</option>
+                  <option value="AB型">AB 型</option>
+                </select>
+              </font></td>
+              <td><font size="2">婚 姻</font></td>
+              <td colspan="4"><font size="2">
+                <input type="radio" name="marriage_status" value="已婚">已婚
+                <input type="radio" name="marriage_status" value="未婚">未婚
+                <input type="radio" name="marriage_status" value="其他">其他
+              ，請說明
+                      <input name="婚 姻" type="text" id="婚 姻">
+                      </font></td>
+              </tr>
+            <tr>
+              <td><font size="2">兵 役</font></td>
+              <td colspan="6"><label><font size="2">
+                <input type="radio" name="military" value="已役">
+已役</font></label>
+                <font size="2">
+                      <select name="兵役年" id="兵役年" >
+                        <option selected value=""></option>
+                  <option value="66">66</option>
+                  <option value="67">67</option>
+                  <option value="68">68</option>
+                  <option value="69">69</option>
+                  <option value="70">70</option>
+                  <option value="71">71</option>
+                  <option value="72">72</option>
+                  <option value="73">73</option>
+                  <option value="74">74</option>
+                  <option value="75">75</option>
+                  <option value="76">76</option>
+                  <option value="77">77</option>
+                  <option value="78">78</option>
+                  <option value="79">79</option>
+                  <option value="80">80</option>
+                  <option value="81">81</option>
+                  <option value="82">82</option>
+                  <option value="83">83</option>
+                  <option value="84">84</option>
+                  <option value="85">85</option>
+                  <option value="86">86</option>
+                  <option value="87">87</option>
+                  <option value="88">88</option>
+                  <option value="89">89</option>
+                  <option value="90">90</option>
+                  <option value="91">91</option>
+                  <option value="92">92</option>
+                  <option value="93">93</option>
+                  <option value="94">94</option>
+                  <option value="95">95</option>
+                  <option value="96">96</option>
+                  <option value="97">97</option>
+                  <option value="98">98</option>
+                  <option value="99">99</option>
+                  <option value="100">100</option>
+                </select>
+年
+                      <select name="兵役月" id="兵役月" >
+                        <option selected value=""></option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                </select>
+月
+<font size="2">退伍</font><font size="2">
+<label>&nbsp;&nbsp;
+<input type="radio" name="military" value="未役">
+未役</label>
+</font>
+<label></label>
+&nbsp;&nbsp;
+<input type="radio" name="military" value="免役">
+<font size="2">免役，請說明
+                      <input name="兵役免疫說明" type="text" id="兵役免疫說明">
+</font></font></td>
+              </tr>
+            <tr>
+              <td><font size="2">聯絡電話</font></td>
+              <td colspan="6"><font size="2">&nbsp;(日)&nbsp;
+                      <input name="聯絡電話日" type="text" id="聯絡電話日">
+                </font><font size="2">&nbsp;(夜)&nbsp;</font><font size="2">
+                      <input name="聯絡電話夜" type="text" id="聯絡電話夜">
+                      &nbsp;(行動)&nbsp;
+                      <input name="聯絡電話行動" type="text" id="聯絡電話行動">
+              </font></td>
+              </tr>
+            <tr>
+              <td><font size="2">E-mail</font></td>
+              <td colspan="6"><label>
+                      <input name="E-mail" type="text" id="E-mail" size="50">
+                </label></td>
+              </tr>
+            <tr>
+              <td><font size="2">戶籍地址              </font></td>
+              <td colspan="6"><font size="2">
+                      <input name="戶籍地址" type="text" id="戶籍地址" size="80">
+              </font></td>
+              </tr>
+            <tr>
+              <td><font size="2">聯絡地址</font></td>
+              <td colspan="6"><font size="2">
+                      <input name="同戶籍地址" type="checkbox" id="同戶籍地址" onClick="address_b1()">
+                      同戶籍地址
+                      <input name="聯絡地址" type="text" id="聯絡地址" size="80">
+              </font></td>
+              </tr>
+          </table>
+          <table width="100%" border="1" align="center" cellpadding="2" cellspacing="0" bordercolor="82a0df">
+            <tr>
+              <td colspan="5" bgcolor="#CAE2FF"><div align="center"><font size="3"><strong>學
+                      歷</strong></font></div>
+              </td>
+              </tr>
+            <tr>
+              <td width="24%"><div align="center"><font size="2">學 校 名 稱</font></div>
+              </td>
+              <td width="20%"><div align="center"><font size="2">科&nbsp;&nbsp;系</font></div>
+              </td>
+              <td width="32%"><div align="center"><font size="2">修業期間</font></div>
+              </td>
+              <td width="11%"><div align="center"><font size="2">畢&nbsp;&nbsp;業</font></div>
+                  <div align="center"></div>
+              </td>
+              <td width="13%"><div align="center"><font size="2">日 (夜)間部/進修</font></div></td>
+            </tr>
+            <tr>
+                    <td height="50"> 
+                      <div align="right"><font size="2">高中
+                        <input name="高中" type="text" id="高中" size="20">
+                 </font></div>
+              </td>
+              <td align="center"><font size="2">
+                      <input name="科系" type="text" id="科系" size="22">
+              </font></td>
+              <td align="center"><font size="2">
+                      <select name="修業起年" id="修業起年" >
+                        <option value="66">66</option>
+                        <option value="67">67</option>
+                        <option value="68">68</option>
+                        <option value="69">69</option>
+                        <option value="70">70</option>
+                        <option value="71">71</option>
+                        <option value="72">72</option>
+                        <option value="73">73</option>
+                        <option value="74">74</option>
+                        <option value="75">75</option>
+                        <option value="76">76</option>
+                        <option value="77">77</option>
+                        <option value="78">78</option>
+                        <option value="79">79</option>
+                        <option value="80">80</option>
+                        <option value="81">81</option>
+                        <option value="82">82</option>
+                        <option value="83">83</option>
+                        <option value="84">84</option>
+                        <option value="85">85</option>
+                        <option value="86">86</option>
+                        <option value="87">87</option>
+                        <option value="88">88</option>
+                        <option value="89">89</option>
+                        <option value="90">90</option>
+                        <option value="91">91</option>
+                        <option value="92">92</option>
+                        <option value="93">93</option>
+                        <option value="94">94</option>
+                        <option value="95">95</option>
+                        <option value="96">96</option>
+                        <option value="97">97</option>
+                        <option value="98">98</option>
+                        <option value="99">99</option>
+                        <option value="100">100</option>
+                        <option value="101">101</option>
+                        <option value="102">102</option>
+                        <option value="103">103</option>
+                        <option value="104">104</option>
+                        <option value="105">105</option>
+                      </select>
+年
+                      <select name="修業起月" id="修業起月" >
+                        <option selected value=""></option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                </select>
+月~
+                      <select name="結業迄年" id="結業迄年" >
+                        <option value="66">66</option>
+                        <option value="67">67</option>
+                        <option value="68">68</option>
+                        <option value="69">69</option>
+                        <option value="70">70</option>
+                        <option value="71">71</option>
+                        <option value="72">72</option>
+                        <option value="73">73</option>
+                        <option value="74">74</option>
+                        <option value="75">75</option>
+                        <option value="76">76</option>
+                        <option value="77">77</option>
+                        <option value="78">78</option>
+                        <option value="79">79</option>
+                        <option value="80">80</option>
+                        <option value="81">81</option>
+                        <option value="82">82</option>
+                        <option value="83">83</option>
+                        <option value="84">84</option>
+                        <option value="85">85</option>
+                        <option value="86">86</option>
+                        <option value="87">87</option>
+                        <option value="88">88</option>
+                        <option value="89">89</option>
+                        <option value="90">90</option>
+                        <option value="91">91</option>
+                        <option value="92">92</option>
+                        <option value="93">93</option>
+                        <option value="94">94</option>
+                        <option value="95">95</option>
+                        <option value="96">96</option>
+                        <option value="97">97</option>
+                        <option value="98">98</option>
+                        <option value="99">99</option>
+                        <option value="100">100</option>
+                        <option value="101">101</option>
+                        <option value="102">102</option>
+                        <option value="103">103</option>
+                        <option value="104">104</option>
+                        <option value="105">105</option>
+                      </select>
+年
+                      <select name="結業迄月" id="結業迄月" >
+                        <option selected value=""></option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                </select>
+月</font></td>
+              <td align="center"><font size="2">&nbsp;
+                </font> <font size="2">
+                      <input name="畢業" type="radio" value="畢業">
+是
+                      <input type="radio" name="肄業" value="肄業">
+否</font></td>
+                    <td align="center"><font size="2"> 
+                      <label> 
+                      <input type="radio" name="日間部" value="日間部">
+                      日</label>
+                      <label> 
+                      <input type="radio" name="夜間部" value="夜間部">
+                      夜</label>
+                      <label></label>
+                      <br>
+                      <input type="radio" name="進修" value="進修">
+                      進修 </font></td>
+            </tr>
+            <tr>
+                    <td height="45">
+<div align="right"><font size="2">專科
+                        <input name="專科" type="text" id="專科" size="20">
+                </font></div>
+              </td>
+              <td align="center"><font size="2">
+                      <input name="科系" type="text" id="科系" size="22">
+              </font></td>
+                    <td align="center"><font size="2"> 
+                      <select name="修業起年" id="修業起年" >
+                        <option value="66">66</option>
+                        <option value="67">67</option>
+                        <option value="68">68</option>
+                        <option value="69">69</option>
+                        <option value="70">70</option>
+                        <option value="71">71</option>
+                        <option value="72">72</option>
+                        <option value="73">73</option>
+                        <option value="74">74</option>
+                        <option value="75">75</option>
+                        <option value="76">76</option>
+                        <option value="77">77</option>
+                        <option value="78">78</option>
+                        <option value="79">79</option>
+                        <option value="80">80</option>
+                        <option value="81">81</option>
+                        <option value="82">82</option>
+                        <option value="83">83</option>
+                        <option value="84">84</option>
+                        <option value="85">85</option>
+                        <option value="86">86</option>
+                        <option value="87">87</option>
+                        <option value="88">88</option>
+                        <option value="89">89</option>
+                        <option value="90">90</option>
+                        <option value="91">91</option>
+                        <option value="92">92</option>
+                        <option value="93">93</option>
+                        <option value="94">94</option>
+                        <option value="95">95</option>
+                        <option value="96">96</option>
+                        <option value="97">97</option>
+                        <option value="98">98</option>
+                        <option value="99">99</option>
+                        <option value="100">100</option>
+                        <option value="101">101</option>
+                        <option value="102">102</option>
+                        <option value="103">103</option>
+                        <option value="104">104</option>
+                        <option value="105">105</option>
+                      </select>
+                      年 
+                      <select name="修業起月" id="修業起月" >
+                        <option selected value=""></option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                      </select>
+                      月~ 
+                      <select name="結業迄年" id="結業迄年" >
+                        <option value="66">66</option>
+                        <option value="67">67</option>
+                        <option value="68">68</option>
+                        <option value="69">69</option>
+                        <option value="70">70</option>
+                        <option value="71">71</option>
+                        <option value="72">72</option>
+                        <option value="73">73</option>
+                        <option value="74">74</option>
+                        <option value="75">75</option>
+                        <option value="76">76</option>
+                        <option value="77">77</option>
+                        <option value="78">78</option>
+                        <option value="79">79</option>
+                        <option value="80">80</option>
+                        <option value="81">81</option>
+                        <option value="82">82</option>
+                        <option value="83">83</option>
+                        <option value="84">84</option>
+                        <option value="85">85</option>
+                        <option value="86">86</option>
+                        <option value="87">87</option>
+                        <option value="88">88</option>
+                        <option value="89">89</option>
+                        <option value="90">90</option>
+                        <option value="91">91</option>
+                        <option value="92">92</option>
+                        <option value="93">93</option>
+                        <option value="94">94</option>
+                        <option value="95">95</option>
+                        <option value="96">96</option>
+                        <option value="97">97</option>
+                        <option value="98">98</option>
+                        <option value="99">99</option>
+                        <option value="100">100</option>
+                        <option value="101">101</option>
+                        <option value="102">102</option>
+                        <option value="103">103</option>
+                        <option value="104">104</option>
+                        <option value="105">105</option>
+                      </select>
+                      年 
+                      <select name="結業迄月" id="結業迄月" >
+                        <option selected value=""></option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                      </select>
+                      月</font></td>
+              <td align="center"><font size="2">&nbsp;
+                </font> <font size="2">
+                      <input type="radio" name="畢業" value="畢業">
+是
+                      <input type="radio" name="肄業" value="肄業">
+否</font></td>
+                    <td align="center"><font size="2"> 
+                      <label></label>
+                      <label> 
+                      <input type="radio" name="日間部" value="日間部">
+                      日</label>
+                      <label> 
+                      <input type="radio" name="夜間部" value="夜間部">
+                      夜</label>
+                      <label></label>
+                      <br>
+                      <input type="radio" name="進修" value="進修">
+                      進修 </font></td>
+            </tr>
+            <tr>
+                    <td height="46">
+<div align="right"><font size="2"> 大學
+                        <input name="大學" type="text" id="大學" size="20">
+                </font></div>
+              </td>
+              <td align="center"><font size="2">
+                      <input name="科系" type="text" id="科系" size="22">
+              </font></td>
+              <td align="center"><font size="2">
+                      <select name="修業起年" id="修業起年" >
+                        <option value="66">66</option>
+                        <option value="67">67</option>
+                        <option value="68">68</option>
+                        <option value="69">69</option>
+                        <option value="70">70</option>
+                        <option value="71">71</option>
+                        <option value="72">72</option>
+                        <option value="73">73</option>
+                        <option value="74">74</option>
+                        <option value="75">75</option>
+                        <option value="76">76</option>
+                        <option value="77">77</option>
+                        <option value="78">78</option>
+                        <option value="79">79</option>
+                        <option value="80">80</option>
+                        <option value="81">81</option>
+                        <option value="82">82</option>
+                        <option value="83">83</option>
+                        <option value="84">84</option>
+                        <option value="85">85</option>
+                        <option value="86">86</option>
+                        <option value="87">87</option>
+                        <option value="88">88</option>
+                        <option value="89">89</option>
+                        <option value="90">90</option>
+                        <option value="91">91</option>
+                        <option value="92">92</option>
+                        <option value="93">93</option>
+                        <option value="94">94</option>
+                        <option value="95">95</option>
+                        <option value="96">96</option>
+                        <option value="97">97</option>
+                        <option value="98">98</option>
+                        <option value="99">99</option>
+                        <option value="100">100</option>
+                        <option value="101">101</option>
+                        <option value="102">102</option>
+                        <option value="103">103</option>
+                        <option value="104">104</option>
+                        <option value="105">105</option>
+                      </select>
+年
+                      <select name="修業起月" id="修業起月" >
+                        <option selected value=""></option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                </select>
+月~
+                      <select name="結業迄年" id="結業迄年" >
+                        <option value="66">66</option>
+                        <option value="67">67</option>
+                        <option value="68">68</option>
+                        <option value="69">69</option>
+                        <option value="70">70</option>
+                        <option value="71">71</option>
+                        <option value="72">72</option>
+                        <option value="73">73</option>
+                        <option value="74">74</option>
+                        <option value="75">75</option>
+                        <option value="76">76</option>
+                        <option value="77">77</option>
+                        <option value="78">78</option>
+                        <option value="79">79</option>
+                        <option value="80">80</option>
+                        <option value="81">81</option>
+                        <option value="82">82</option>
+                        <option value="83">83</option>
+                        <option value="84">84</option>
+                        <option value="85">85</option>
+                        <option value="86">86</option>
+                        <option value="87">87</option>
+                        <option value="88">88</option>
+                        <option value="89">89</option>
+                        <option value="90">90</option>
+                        <option value="91">91</option>
+                        <option value="92">92</option>
+                        <option value="93">93</option>
+                        <option value="94">94</option>
+                        <option value="95">95</option>
+                        <option value="96">96</option>
+                        <option value="97">97</option>
+                        <option value="98">98</option>
+                        <option value="99">99</option>
+                        <option value="100">100</option>
+                        <option value="101">101</option>
+                        <option value="102">102</option>
+                        <option value="103">103</option>
+                        <option value="104">104</option>
+                        <option value="105">105</option>
+                      </select>
+年
+                      <select name="結業迄月" id="結業迄月" >
+                        <option selected value=""></option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                </select>
+月</font></td>
+              <td align="center"><font size="2">&nbsp;
+                </font> <font size="2">
+                      <input type="radio" name="畢業" value="畢業">
+是
+                      <input type="radio" name="肄業" value="肄業">
+否</font></td>
+                    <td align="center"><font size="2"> 
+                      <label></label>
+                      <label> 
+                      <input type="radio" name="日間部" value="日間部">
+                      日</label>
+                      <label> 
+                      <input type="radio" name="夜間部" value="夜間部">
+                      夜</label>
+                      <label></label>
+                      <br>
+                      <input type="radio" name="進修" value="進修">
+                      進修 </font></td>
+            </tr>
+            <tr>
+                    <td height="45">
+<div align="right"><font size="2">研究所
+                        <input name="研究所" type="text" id="研究所" size="20">
+                </font></div>
+              </td>
+              <td align="center"><font size="2">
+                      <input name="科系" type="text" id="科系" size="22">
+              </font></td>
+                    <td align="center"><font size="2"> 
+                      <select name="修業起年" id="修業起年" >
+                        <option value="66">66</option>
+                        <option value="67">67</option>
+                        <option value="68">68</option>
+                        <option value="69">69</option>
+                        <option value="70">70</option>
+                        <option value="71">71</option>
+                        <option value="72">72</option>
+                        <option value="73">73</option>
+                        <option value="74">74</option>
+                        <option value="75">75</option>
+                        <option value="76">76</option>
+                        <option value="77">77</option>
+                        <option value="78">78</option>
+                        <option value="79">79</option>
+                        <option value="80">80</option>
+                        <option value="81">81</option>
+                        <option value="82">82</option>
+                        <option value="83">83</option>
+                        <option value="84">84</option>
+                        <option value="85">85</option>
+                        <option value="86">86</option>
+                        <option value="87">87</option>
+                        <option value="88">88</option>
+                        <option value="89">89</option>
+                        <option value="90">90</option>
+                        <option value="91">91</option>
+                        <option value="92">92</option>
+                        <option value="93">93</option>
+                        <option value="94">94</option>
+                        <option value="95">95</option>
+                        <option value="96">96</option>
+                        <option value="97">97</option>
+                        <option value="98">98</option>
+                        <option value="99">99</option>
+                        <option value="100">100</option>
+                        <option value="101">101</option>
+                        <option value="102">102</option>
+                        <option value="103">103</option>
+                        <option value="104">104</option>
+                        <option value="105">105</option>
+                      </select>
+                      年 
+                      <select name="修業起月" id="修業起月" >
+                        <option selected value=""></option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                      </select>
+                      月~ 
+                      <select name="結業迄年" id="結業迄年" >
+                        <option value="66">66</option>
+                        <option value="67">67</option>
+                        <option value="68">68</option>
+                        <option value="69">69</option>
+                        <option value="70">70</option>
+                        <option value="71">71</option>
+                        <option value="72">72</option>
+                        <option value="73">73</option>
+                        <option value="74">74</option>
+                        <option value="75">75</option>
+                        <option value="76">76</option>
+                        <option value="77">77</option>
+                        <option value="78">78</option>
+                        <option value="79">79</option>
+                        <option value="80">80</option>
+                        <option value="81">81</option>
+                        <option value="82">82</option>
+                        <option value="83">83</option>
+                        <option value="84">84</option>
+                        <option value="85">85</option>
+                        <option value="86">86</option>
+                        <option value="87">87</option>
+                        <option value="88">88</option>
+                        <option value="89">89</option>
+                        <option value="90">90</option>
+                        <option value="91">91</option>
+                        <option value="92">92</option>
+                        <option value="93">93</option>
+                        <option value="94">94</option>
+                        <option value="95">95</option>
+                        <option value="96">96</option>
+                        <option value="97">97</option>
+                        <option value="98">98</option>
+                        <option value="99">99</option>
+                        <option value="100">100</option>
+                        <option value="101">101</option>
+                        <option value="102">102</option>
+                        <option value="103">103</option>
+                        <option value="104">104</option>
+                        <option value="105">105</option>
+                      </select>
+                      年 
+                      <select name="結業迄月" id="結業迄月" >
+                        <option selected value=""></option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                      </select>
+                      月</font></td>
+              <td align="center"><font size="2">&nbsp;
+                </font> <font size="2">
+                      <input type="radio" name="畢業" value="畢業">
+是
+                      <input type="radio" name="肄業" value="肄業">
+否</font></td>
+                    <td align="center"><font size="2"> 
+                      <label></label>
+                      <label> 
+                      <input type="radio" name="日間部" value="日間部">
+                      日</label>
+                      <label> 
+                      <input type="radio" name="夜間部" value="夜間部">
+                      夜</label>
+                      <label></label>
+                      <br>
+                      <input type="radio" name="進修" value="進修">
+                      進修 </font></td>
+            </tr>
+            <tr>
+                    <td height="45">
+<div align="right"><font size="2">其他
+                        <input name="其他學歷" type="text" id="其他學歷" size="20">
+                </font></div>
+              </td>
+              <td align="center"><font size="2">
+                      <input name="科系" type="text" id="科系" size="22">
+              </font></td>
+                    <td align="center"><font size="2"> 
+                      <select name="修業起年" id="修業起年" >
+                        <option value="66">66</option>
+                        <option value="67">67</option>
+                        <option value="68">68</option>
+                        <option value="69">69</option>
+                        <option value="70">70</option>
+                        <option value="71">71</option>
+                        <option value="72">72</option>
+                        <option value="73">73</option>
+                        <option value="74">74</option>
+                        <option value="75">75</option>
+                        <option value="76">76</option>
+                        <option value="77">77</option>
+                        <option value="78">78</option>
+                        <option value="79">79</option>
+                        <option value="80">80</option>
+                        <option value="81">81</option>
+                        <option value="82">82</option>
+                        <option value="83">83</option>
+                        <option value="84">84</option>
+                        <option value="85">85</option>
+                        <option value="86">86</option>
+                        <option value="87">87</option>
+                        <option value="88">88</option>
+                        <option value="89">89</option>
+                        <option value="90">90</option>
+                        <option value="91">91</option>
+                        <option value="92">92</option>
+                        <option value="93">93</option>
+                        <option value="94">94</option>
+                        <option value="95">95</option>
+                        <option value="96">96</option>
+                        <option value="97">97</option>
+                        <option value="98">98</option>
+                        <option value="99">99</option>
+                        <option value="100">100</option>
+                        <option value="101">101</option>
+                        <option value="102">102</option>
+                        <option value="103">103</option>
+                        <option value="104">104</option>
+                        <option value="105">105</option>
+                      </select>
+                      年 
+                      <select name="修業起月" id="修業起月" >
+                        <option selected value=""></option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                      </select>
+                      月~ 
+                      <select name="結業迄年" id="結業迄年" >
+                        <option value="66">66</option>
+                        <option value="67">67</option>
+                        <option value="68">68</option>
+                        <option value="69">69</option>
+                        <option value="70">70</option>
+                        <option value="71">71</option>
+                        <option value="72">72</option>
+                        <option value="73">73</option>
+                        <option value="74">74</option>
+                        <option value="75">75</option>
+                        <option value="76">76</option>
+                        <option value="77">77</option>
+                        <option value="78">78</option>
+                        <option value="79">79</option>
+                        <option value="80">80</option>
+                        <option value="81">81</option>
+                        <option value="82">82</option>
+                        <option value="83">83</option>
+                        <option value="84">84</option>
+                        <option value="85">85</option>
+                        <option value="86">86</option>
+                        <option value="87">87</option>
+                        <option value="88">88</option>
+                        <option value="89">89</option>
+                        <option value="90">90</option>
+                        <option value="91">91</option>
+                        <option value="92">92</option>
+                        <option value="93">93</option>
+                        <option value="94">94</option>
+                        <option value="95">95</option>
+                        <option value="96">96</option>
+                        <option value="97">97</option>
+                        <option value="98">98</option>
+                        <option value="99">99</option>
+                        <option value="100">100</option>
+                        <option value="101">101</option>
+                        <option value="102">102</option>
+                        <option value="103">103</option>
+                        <option value="104">104</option>
+                        <option value="105">105</option>
+                      </select>
+                      年 
+                      <select name="結業迄月" id="結業迄月" >
+                        <option selected value=""></option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                      </select>
+                      月</font></td>
+              <td align="center"><font size="2">&nbsp;
+                </font> <font size="2">
+                      <input type="radio" name="畢業" value="畢業">
+是
+                      <input type="radio" name="肄業" value="肄業">
+否</font></td>
+                    <td align="center"><font size="2"> 
+                      <label> </label>
+                      <label> 
+                      <input type="radio" name="日間部" value="日間部">
+                      日</label>
+                      <label> 
+                      <input type="radio" name="夜間部" value="夜間部">
+                      夜</label>
+                      <label></label>
+                      <br>
+                      <input type="radio" name="進修" value="進修">
+                      進修 </font></td>
+            </tr>
+          </table>
+          <table width="100%" border="1" align="center" cellpadding="2" cellspacing="0" bordercolor="82a0df">
+            <tr>
+              <td colspan="7" bgcolor="#CAE2FF"><div align="center"><font size="3"><strong>經
+                      歷</strong></font></div>
+              </td>
+              </tr>
+            <tr>
+              <td width="20%"><div align="center"><font size="2">公 司 名 稱</font></div></td>
+              <td><div align="center"><font size="2">職 稱</font></div></td>
+              <td width="8%"><div align="center"><font size="2">月 薪</font></div></td>
+              <td><div align="center"><font size="2">任 職 期 間</font></div></td>
+              <td width="18%"><div align="center"><font size="2">離 職 原 因</font></div></td>
+              </tr>
+            <tr>
+              <td align="center"><font size="2">
+                      <input name="經歷公司1" type="text" id="經歷公司1" size="26">
+              </font></td>
+              <td align="center"><font size="2">
+                      <input name="職稱1" type="text" id="職稱1" size="15">
+              </font></td>
+              <td align="center"><font size="2">
+                      <input name="月薪1" type="text" id="月薪1" size="8">
+              </font></td>
+                    <td align="center"><font size="2"> 
+                      <select name="任職起年1" id="任職起年1" >
+                        <option value="66">66</option>
+                        <option value="67">67</option>
+                        <option value="68">68</option>
+                        <option value="69">69</option>
+                        <option value="70">70</option>
+                        <option value="71">71</option>
+                        <option value="72">72</option>
+                        <option value="73">73</option>
+                        <option value="74">74</option>
+                        <option value="75">75</option>
+                        <option value="76">76</option>
+                        <option value="77">77</option>
+                        <option value="78">78</option>
+                        <option value="79">79</option>
+                        <option value="80">80</option>
+                        <option value="81">81</option>
+                        <option value="82">82</option>
+                        <option value="83">83</option>
+                        <option value="84">84</option>
+                        <option value="85">85</option>
+                        <option value="86">86</option>
+                        <option value="87">87</option>
+                        <option value="88">88</option>
+                        <option value="89">89</option>
+                        <option value="90">90</option>
+                        <option value="91">91</option>
+                        <option value="92">92</option>
+                        <option value="93">93</option>
+                        <option value="94">94</option>
+                        <option value="95">95</option>
+                        <option value="96">96</option>
+                        <option value="97">97</option>
+                        <option value="98">98</option>
+                        <option value="99">99</option>
+                        <option value="100">100</option>
+                        <option value="101">101</option>
+                        <option value="102">102</option>
+                        <option value="103">103</option>
+                        <option value="104">104</option>
+                        <option value="105">105</option>
+                      </select>
+                      年 
+                      <select name="任職起月1" id="任職起月1" >
+                        <option selected value=""></option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                      </select>
+                      月~ 
+                      <select name="任職迄年1" id="任職迄年1" >
+                        <option value="66">66</option>
+                        <option value="67">67</option>
+                        <option value="68">68</option>
+                        <option value="69">69</option>
+                        <option value="70">70</option>
+                        <option value="71">71</option>
+                        <option value="72">72</option>
+                        <option value="73">73</option>
+                        <option value="74">74</option>
+                        <option value="75">75</option>
+                        <option value="76">76</option>
+                        <option value="77">77</option>
+                        <option value="78">78</option>
+                        <option value="79">79</option>
+                        <option value="80">80</option>
+                        <option value="81">81</option>
+                        <option value="82">82</option>
+                        <option value="83">83</option>
+                        <option value="84">84</option>
+                        <option value="85">85</option>
+                        <option value="86">86</option>
+                        <option value="87">87</option>
+                        <option value="88">88</option>
+                        <option value="89">89</option>
+                        <option value="90">90</option>
+                        <option value="91">91</option>
+                        <option value="92">92</option>
+                        <option value="93">93</option>
+                        <option value="94">94</option>
+                        <option value="95">95</option>
+                        <option value="96">96</option>
+                        <option value="97">97</option>
+                        <option value="98">98</option>
+                        <option value="99">99</option>
+                        <option value="100">100</option>
+                        <option value="101">101</option>
+                        <option value="102">102</option>
+                        <option value="103">103</option>
+                        <option value="104">104</option>
+                        <option value="105">105</option>
+                      </select>
+                      年 
+                      <select name="任職迄月1" id="任職迄月1" >
+                        <option selected value=""></option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                      </select>
+                      月</font></td>
+              <td align="center"><font size="2">
+                      <input name="離職原因1" type="text" id="離職原因1" size="26">
+              </font></td>
+              </tr>
+            <tr>
+              <td align="center"><font size="2">
+                      <input name="經歷公司2" type="text" id="經歷公司2" size="26">
+              </font></td>
+              <td align="center"><font size="2">
+                      <input name="職稱2" type="text" id="職稱2" size="15">
+              </font></td>
+              <td align="center"><font size="2">
+                      <input name="月薪2" type="text" id="月薪2" size="8">
+              </font></td>
+                    <td align="center"><font size="2"> 
+                      <select name="任職起年2" id="任職起年2" >
+                        <option value="66">66</option>
+                        <option value="67">67</option>
+                        <option value="68">68</option>
+                        <option value="69">69</option>
+                        <option value="70">70</option>
+                        <option value="71">71</option>
+                        <option value="72">72</option>
+                        <option value="73">73</option>
+                        <option value="74">74</option>
+                        <option value="75">75</option>
+                        <option value="76">76</option>
+                        <option value="77">77</option>
+                        <option value="78">78</option>
+                        <option value="79">79</option>
+                        <option value="80">80</option>
+                        <option value="81">81</option>
+                        <option value="82">82</option>
+                        <option value="83">83</option>
+                        <option value="84">84</option>
+                        <option value="85">85</option>
+                        <option value="86">86</option>
+                        <option value="87">87</option>
+                        <option value="88">88</option>
+                        <option value="89">89</option>
+                        <option value="90">90</option>
+                        <option value="91">91</option>
+                        <option value="92">92</option>
+                        <option value="93">93</option>
+                        <option value="94">94</option>
+                        <option value="95">95</option>
+                        <option value="96">96</option>
+                        <option value="97">97</option>
+                        <option value="98">98</option>
+                        <option value="99">99</option>
+                        <option value="100">100</option>
+                        <option value="101">101</option>
+                        <option value="102">102</option>
+                        <option value="103">103</option>
+                        <option value="104">104</option>
+                        <option value="105">105</option>
+                      </select>
+                      年 
+                      <select name="任職起月2" id="任職起月2" >
+                        <option selected value=""></option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                      </select>
+                      月~ 
+                      <select name="任職迄年2" id="任職迄年2" >
+                        <option value="66">66</option>
+                        <option value="67">67</option>
+                        <option value="68">68</option>
+                        <option value="69">69</option>
+                        <option value="70">70</option>
+                        <option value="71">71</option>
+                        <option value="72">72</option>
+                        <option value="73">73</option>
+                        <option value="74">74</option>
+                        <option value="75">75</option>
+                        <option value="76">76</option>
+                        <option value="77">77</option>
+                        <option value="78">78</option>
+                        <option value="79">79</option>
+                        <option value="80">80</option>
+                        <option value="81">81</option>
+                        <option value="82">82</option>
+                        <option value="83">83</option>
+                        <option value="84">84</option>
+                        <option value="85">85</option>
+                        <option value="86">86</option>
+                        <option value="87">87</option>
+                        <option value="88">88</option>
+                        <option value="89">89</option>
+                        <option value="90">90</option>
+                        <option value="91">91</option>
+                        <option value="92">92</option>
+                        <option value="93">93</option>
+                        <option value="94">94</option>
+                        <option value="95">95</option>
+                        <option value="96">96</option>
+                        <option value="97">97</option>
+                        <option value="98">98</option>
+                        <option value="99">99</option>
+                        <option value="100">100</option>
+                        <option value="101">101</option>
+                        <option value="102">102</option>
+                        <option value="103">103</option>
+                        <option value="104">104</option>
+                        <option value="105">105</option>
+                      </select>
+                      年 
+                      <select name="任職迄月2" id="任職迄月2" >
+                        <option selected value=""></option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                      </select>
+                      月</font></td>
+              <td align="center"><font size="2">
+                      <input name="離職原因2" type="text" id="離職原因2" size="26">
+              </font></td>
+            </tr>
+            <tr>
+              <td align="center"><font size="2">
+                      <input name="經歷公司3" type="text" id="經歷公司3" size="26">
+              </font></td>
+              <td align="center"><font size="2">
+                      <input name="職稱3" type="text" id="職稱3" size="15">
+              </font></td>
+              <td align="center"><font size="2">
+                      <input name="月薪3" type="text" id="月薪3" size="8">
+              </font></td>
+                    <td align="center"><font size="2"> 
+                      <select name="任職起年3" id="select" >
+                        <option value="66">66</option>
+                        <option value="67">67</option>
+                        <option value="68">68</option>
+                        <option value="69">69</option>
+                        <option value="70">70</option>
+                        <option value="71">71</option>
+                        <option value="72">72</option>
+                        <option value="73">73</option>
+                        <option value="74">74</option>
+                        <option value="75">75</option>
+                        <option value="76">76</option>
+                        <option value="77">77</option>
+                        <option value="78">78</option>
+                        <option value="79">79</option>
+                        <option value="80">80</option>
+                        <option value="81">81</option>
+                        <option value="82">82</option>
+                        <option value="83">83</option>
+                        <option value="84">84</option>
+                        <option value="85">85</option>
+                        <option value="86">86</option>
+                        <option value="87">87</option>
+                        <option value="88">88</option>
+                        <option value="89">89</option>
+                        <option value="90">90</option>
+                        <option value="91">91</option>
+                        <option value="92">92</option>
+                        <option value="93">93</option>
+                        <option value="94">94</option>
+                        <option value="95">95</option>
+                        <option value="96">96</option>
+                        <option value="97">97</option>
+                        <option value="98">98</option>
+                        <option value="99">99</option>
+                        <option value="100">100</option>
+                        <option value="101">101</option>
+                        <option value="102">102</option>
+                        <option value="103">103</option>
+                        <option value="104">104</option>
+                        <option value="105">105</option>
+                      </select>
+                      年 
+                      <select name="任職起月3" id="任職起月3" >
+                        <option selected value=""></option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                      </select>
+                      月~ 
+                      <select name="任職迄年3" id="任職迄年3" >
+                        <option value="66">66</option>
+                        <option value="67">67</option>
+                        <option value="68">68</option>
+                        <option value="69">69</option>
+                        <option value="70">70</option>
+                        <option value="71">71</option>
+                        <option value="72">72</option>
+                        <option value="73">73</option>
+                        <option value="74">74</option>
+                        <option value="75">75</option>
+                        <option value="76">76</option>
+                        <option value="77">77</option>
+                        <option value="78">78</option>
+                        <option value="79">79</option>
+                        <option value="80">80</option>
+                        <option value="81">81</option>
+                        <option value="82">82</option>
+                        <option value="83">83</option>
+                        <option value="84">84</option>
+                        <option value="85">85</option>
+                        <option value="86">86</option>
+                        <option value="87">87</option>
+                        <option value="88">88</option>
+                        <option value="89">89</option>
+                        <option value="90">90</option>
+                        <option value="91">91</option>
+                        <option value="92">92</option>
+                        <option value="93">93</option>
+                        <option value="94">94</option>
+                        <option value="95">95</option>
+                        <option value="96">96</option>
+                        <option value="97">97</option>
+                        <option value="98">98</option>
+                        <option value="99">99</option>
+                        <option value="100">100</option>
+                        <option value="101">101</option>
+                        <option value="102">102</option>
+                        <option value="103">103</option>
+                        <option value="104">104</option>
+                        <option value="105">105</option>
+                      </select>
+                      年 
+                      <select name="任職迄月3" id="任職迄月3" >
+                        <option selected value=""></option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                      </select>
+                      月</font></td>
+              <td align="center"><font size="2">
+                      <input name="離職原因3" type="text" id="離職原因3" size="26">
+              </font></td>
+            </tr>
+            <tr>
+              <td align="center"><font size="2">
+                      <input name="經歷公司4" type="text" id="經歷公司4" size="26">
+              </font></td>
+              <td align="center"><font size="2">
+                      <input name="職稱4" type="text" id="職稱4" size="15">
+              </font></td>
+              <td align="center"><font size="2">
+                      <input name="月薪4" type="text" id="月薪4" size="8">
+              </font></td>
+                    <td align="center"><font size="2"> 
+                      <select name="任職起年4" id="任職起年4" >
+                        <option value="66">66</option>
+                        <option value="67">67</option>
+                        <option value="68">68</option>
+                        <option value="69">69</option>
+                        <option value="70">70</option>
+                        <option value="71">71</option>
+                        <option value="72">72</option>
+                        <option value="73">73</option>
+                        <option value="74">74</option>
+                        <option value="75">75</option>
+                        <option value="76">76</option>
+                        <option value="77">77</option>
+                        <option value="78">78</option>
+                        <option value="79">79</option>
+                        <option value="80">80</option>
+                        <option value="81">81</option>
+                        <option value="82">82</option>
+                        <option value="83">83</option>
+                        <option value="84">84</option>
+                        <option value="85">85</option>
+                        <option value="86">86</option>
+                        <option value="87">87</option>
+                        <option value="88">88</option>
+                        <option value="89">89</option>
+                        <option value="90">90</option>
+                        <option value="91">91</option>
+                        <option value="92">92</option>
+                        <option value="93">93</option>
+                        <option value="94">94</option>
+                        <option value="95">95</option>
+                        <option value="96">96</option>
+                        <option value="97">97</option>
+                        <option value="98">98</option>
+                        <option value="99">99</option>
+                        <option value="100">100</option>
+                        <option value="101">101</option>
+                        <option value="102">102</option>
+                        <option value="103">103</option>
+                        <option value="104">104</option>
+                        <option value="105">105</option>
+                      </select>
+                      年 
+                      <select name="任職起月4" id="任職起月4" >
+                        <option selected value=""></option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                      </select>
+                      月~ 
+                      <select name="任職迄年4" id="任職迄年4" >
+                        <option value="66">66</option>
+                        <option value="67">67</option>
+                        <option value="68">68</option>
+                        <option value="69">69</option>
+                        <option value="70">70</option>
+                        <option value="71">71</option>
+                        <option value="72">72</option>
+                        <option value="73">73</option>
+                        <option value="74">74</option>
+                        <option value="75">75</option>
+                        <option value="76">76</option>
+                        <option value="77">77</option>
+                        <option value="78">78</option>
+                        <option value="79">79</option>
+                        <option value="80">80</option>
+                        <option value="81">81</option>
+                        <option value="82">82</option>
+                        <option value="83">83</option>
+                        <option value="84">84</option>
+                        <option value="85">85</option>
+                        <option value="86">86</option>
+                        <option value="87">87</option>
+                        <option value="88">88</option>
+                        <option value="89">89</option>
+                        <option value="90">90</option>
+                        <option value="91">91</option>
+                        <option value="92">92</option>
+                        <option value="93">93</option>
+                        <option value="94">94</option>
+                        <option value="95">95</option>
+                        <option value="96">96</option>
+                        <option value="97">97</option>
+                        <option value="98">98</option>
+                        <option value="99">99</option>
+                        <option value="100">100</option>
+                        <option value="101">101</option>
+                        <option value="102">102</option>
+                        <option value="103">103</option>
+                        <option value="104">104</option>
+                        <option value="105">105</option>
+                      </select>
+                      年 
+                      <select name="任職迄月4" id="任職迄月4" >
+                        <option selected value=""></option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                      </select>
+                      月</font></td>
+              <td align="center"><font size="2">
+                      <input name="離職原因4" type="text" id="離職原因4" size="26">
+              </font></td>
+            </tr>
+          </table>
+          <table width="100%" border="1" align="center" cellpadding="2" cellspacing="0" bordercolor="82a0df">
+            <tr>
+              <td colspan="5" bgcolor="#CAE2FF"><div align="center"><font size="3"><strong>訓
+                      練 課 程</strong></font></div>
+              </td>
+            </tr>
+            <tr>
+              <td width="22%"><div align="center"><font size="2">訓 練 機 構</font></div>
+              </td>
+              <td width="20%"><div align="center"><font size="2">訓 練 課 程</font></div>
+              </td>
+              <td width="8%"><div align="center"><font size="2">總 時 數</font></div>
+              </td>
+              <td><div align="center"><font size="2">起 迄 年 月</font></div>
+              </td>
+              <td width="20%"><div align="center"><font size="2">證 照 名 稱</font></div>
+                </td>
+            </tr>
+            <tr>
+              <td align="center"><font size="2">
+                      <input name="訓練機構1" type="text" id="訓練機構1" size="24">
+              </font></td>
+              <td align="center"><font size="2">
+                      <input name="訓練課程1" type="text" id="訓練課程1" size="22">
+              </font></td>
+              <td align="center"><font size="2">
+                      <input name="訓練總時數1" type="text" id="訓練總時數1" size="5">
+              </font></td>
+              <td align="center"><font size="2">
+                      <select name="訓練課程起年1" id="訓練課程起年1" >
+                        <option value="66">66</option>
+                        <option value="67">67</option>
+                        <option value="68">68</option>
+                        <option value="69">69</option>
+                        <option value="70">70</option>
+                        <option value="71">71</option>
+                        <option value="72">72</option>
+                        <option value="73">73</option>
+                        <option value="74">74</option>
+                        <option value="75">75</option>
+                        <option value="76">76</option>
+                        <option value="77">77</option>
+                        <option value="78">78</option>
+                        <option value="79">79</option>
+                        <option value="80">80</option>
+                        <option value="81">81</option>
+                        <option value="82">82</option>
+                        <option value="83">83</option>
+                        <option value="84">84</option>
+                        <option value="85">85</option>
+                        <option value="86">86</option>
+                        <option value="87">87</option>
+                        <option value="88">88</option>
+                        <option value="89">89</option>
+                        <option value="90">90</option>
+                        <option value="91">91</option>
+                        <option value="92">92</option>
+                        <option value="93">93</option>
+                        <option value="94">94</option>
+                        <option value="95">95</option>
+                        <option value="96">96</option>
+                        <option value="97">97</option>
+                        <option value="98">98</option>
+                        <option value="99">99</option>
+                        <option value="100">100</option>
+                        <option value="101">101</option>
+                        <option value="102">102</option>
+                        <option value="103">103</option>
+                        <option value="104">104</option>
+                        <option value="105">105</option>
+                      </select>
+年
+                      <select name="訓練課程起月1" id="訓練課程起月1" >
+                        <option selected value=""></option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                </select>
+月~
+                      <select name="訓練課程迄年1" id="訓練課程迄年1" >
+                        <option value="66">66</option>
+                        <option value="67">67</option>
+                        <option value="68">68</option>
+                        <option value="69">69</option>
+                        <option value="70">70</option>
+                        <option value="71">71</option>
+                        <option value="72">72</option>
+                        <option value="73">73</option>
+                        <option value="74">74</option>
+                        <option value="75">75</option>
+                        <option value="76">76</option>
+                        <option value="77">77</option>
+                        <option value="78">78</option>
+                        <option value="79">79</option>
+                        <option value="80">80</option>
+                        <option value="81">81</option>
+                        <option value="82">82</option>
+                        <option value="83">83</option>
+                        <option value="84">84</option>
+                        <option value="85">85</option>
+                        <option value="86">86</option>
+                        <option value="87">87</option>
+                        <option value="88">88</option>
+                        <option value="89">89</option>
+                        <option value="90">90</option>
+                        <option value="91">91</option>
+                        <option value="92">92</option>
+                        <option value="93">93</option>
+                        <option value="94">94</option>
+                        <option value="95">95</option>
+                        <option value="96">96</option>
+                        <option value="97">97</option>
+                        <option value="98">98</option>
+                        <option value="99">99</option>
+                        <option value="100">100</option>
+                        <option value="101">101</option>
+                        <option value="102">102</option>
+                        <option value="103">103</option>
+                        <option value="104">104</option>
+                        <option value="105">105</option>
+                      </select>
+年
+                      <select name="訓練課程迄月1" id="訓練課程迄月1" >
+                        <option selected value=""></option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                </select>
+月</font></td>
+              <td align="center"><font size="2">
+                      <input name="訓練課程證照名稱1" type="text" id="訓練課程證照名稱1" size="24">
+              </font></td>
+            </tr>
+            <tr>
+              <td align="center"><font size="2">
+                      <input name="訓練機構2" type="text" id="訓練機構2" size="24">
+              </font></td>
+              <td align="center"><font size="2">
+                      <input name="訓練課程2" type="text" id="訓練課程2" size="22">
+              </font></td>
+              <td align="center"><font size="2">
+                      <input name="訓練總時數2" type="text" id="訓練總時數2" size="5">
+              </font></td>
+              <td align="center"><font size="2">
+                      <select name="訓練課程起年2" id="訓練課程起年2" >
+                        <option value="66">66</option>
+                        <option value="67">67</option>
+                        <option value="68">68</option>
+                        <option value="69">69</option>
+                        <option value="70">70</option>
+                        <option value="71">71</option>
+                        <option value="72">72</option>
+                        <option value="73">73</option>
+                        <option value="74">74</option>
+                        <option value="75">75</option>
+                        <option value="76">76</option>
+                        <option value="77">77</option>
+                        <option value="78">78</option>
+                        <option value="79">79</option>
+                        <option value="80">80</option>
+                        <option value="81">81</option>
+                        <option value="82">82</option>
+                        <option value="83">83</option>
+                        <option value="84">84</option>
+                        <option value="85">85</option>
+                        <option value="86">86</option>
+                        <option value="87">87</option>
+                        <option value="88">88</option>
+                        <option value="89">89</option>
+                        <option value="90">90</option>
+                        <option value="91">91</option>
+                        <option value="92">92</option>
+                        <option value="93">93</option>
+                        <option value="94">94</option>
+                        <option value="95">95</option>
+                        <option value="96">96</option>
+                        <option value="97">97</option>
+                        <option value="98">98</option>
+                        <option value="99">99</option>
+                        <option value="100">100</option>
+                        <option value="101">101</option>
+                        <option value="102">102</option>
+                        <option value="103">103</option>
+                        <option value="104">104</option>
+                        <option value="105">105</option>
+                      </select>
+年
+                      <select name="訓練課程起月2" id="訓練課程起月2" >
+                        <option selected value=""></option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                </select>
+月~
+                      <select name="訓練課程迄年2" id="訓練課程迄年2" >
+                        <option value="66">66</option>
+                        <option value="67">67</option>
+                        <option value="68">68</option>
+                        <option value="69">69</option>
+                        <option value="70">70</option>
+                        <option value="71">71</option>
+                        <option value="72">72</option>
+                        <option value="73">73</option>
+                        <option value="74">74</option>
+                        <option value="75">75</option>
+                        <option value="76">76</option>
+                        <option value="77">77</option>
+                        <option value="78">78</option>
+                        <option value="79">79</option>
+                        <option value="80">80</option>
+                        <option value="81">81</option>
+                        <option value="82">82</option>
+                        <option value="83">83</option>
+                        <option value="84">84</option>
+                        <option value="85">85</option>
+                        <option value="86">86</option>
+                        <option value="87">87</option>
+                        <option value="88">88</option>
+                        <option value="89">89</option>
+                        <option value="90">90</option>
+                        <option value="91">91</option>
+                        <option value="92">92</option>
+                        <option value="93">93</option>
+                        <option value="94">94</option>
+                        <option value="95">95</option>
+                        <option value="96">96</option>
+                        <option value="97">97</option>
+                        <option value="98">98</option>
+                        <option value="99">99</option>
+                        <option value="100">100</option>
+                        <option value="101">101</option>
+                        <option value="102">102</option>
+                        <option value="103">103</option>
+                        <option value="104">104</option>
+                        <option value="105">105</option>
+                      </select>
+年
+                      <select name="訓練課程迄月2" id="訓練課程迄月2" >
+                        <option selected value=""></option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                </select>
+月</font></td>
+              <td align="center"><font size="2">
+                      <input name="訓練課程證照名稱2" type="text" id="訓練課程證照名稱2" size="24">
+              </font></td>
+            </tr>
+            <tr>
+              <td colspan="7" bgcolor="#CAE2FF"><div align="center"><font size="3"><strong>電
+                    腦 軟 體 專 長、認 證 及 其 他 專 長 (證 照 / 論 文 著 作)</strong></font></div>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="7"><div align="center"><font size="2">
+                        <textarea name="電腦軟體專長認證與其他專長" cols="115" rows="3" id="電腦軟體專長認證與其他專長"></textarea>
+              </font></div>                </td>
+              </tr>
+          </table>
+          <table width="100%" border="1" align="center" cellpadding="2" cellspacing="0" bordercolor="82a0df">
+            <tr>
+              <td colspan="7" bgcolor="#CAE2FF"><div align="center"><font size="2"> 
+                        </font><font size="3"><strong>語 文 能 力</strong></font></div>
+              </td>
+            </tr>
+            <tr>
+              <td><div align="center"><font size="2">語 文</font></div>
+              </td>
+              <td><div align="center"><font size="2">聽</font></div></td>
+              <td><div align="center"><font size="2">說</font></div></td>
+              <td><div align="center"><font size="2">讀</font></div></td>
+              <td><div align="center"><font size="2">寫</font></div></td>
+            </tr>
+            <tr>
+              <td align="center"><div align="center"><font size="2">英 文 </font></div></td>
+              <td align="center"><p><font size="2">
+                <label>
+                        <input type="radio" name="聽-佳1" value="佳">
+  佳</label>
+                <label>
+                        <input type="radio" name="聽-普通1" value="普通">
+  普通</label>
+                <label>
+                        <input type="radio" name="聽-差1" value="差">
+  差</label>
+                <br>
+              </font></p>                              
+              </td>
+              <td align="center"><font size="2">
+                <label>
+                      <input type="radio" name="說-佳1" value="佳">
+佳</label>
+                <label>
+                      <input type="radio" name="說-普通1" value="普通">
+普通</label>
+                <label>
+                      <input type="radio" name="說-差1" value="差">
+差</label>
+</font></td>
+              <td align="center"><font size="2">
+                <label>
+                      <input type="radio" name="讀-佳1" value="佳">
+佳</label>
+                <label>
+                      <input type="radio" name="讀-普通1" value="普通">
+普通</label>
+                <label>
+                      <input type="radio" name="讀-差1" value="差">
+差</label>
+              </font></td>
+              <td align="center"><font size="2">
+                <label>
+                      <input type="radio" name="寫-佳" value="佳">
+佳</label>
+                <label>
+                      <input type="radio" name="寫-普通" value="普通">
+普通</label>
+                <label>
+                      <input type="radio" name="寫-差1" value="差">
+差</label>
+              </font></td>
+            </tr>
+            <tr>
+              <td align="center"><font size="2">
+                      <input name="語文能力2" type="text" id="語文能力2" size="15">
+              </font></td>
+              <td align="center"><p><font size="2">
+                  <label>
+                        <input type="radio" name="聽-佳2" value="佳">
+    佳</label>
+                  <label>
+                        <input type="radio" name="聽-普通3" value="普通">
+    普通</label>
+                  <label>
+                        <input type="radio" name="聽-差2" value="差">
+    差</label>
+                  <br>
+                </font></p>
+              </td>
+              <td align="center"><font size="2">
+                <label>
+                      <input type="radio" name="說-佳2" value="佳">
+  佳</label>
+                <label>
+                      <input type="radio" name="說-普通2" value="普通">
+  普通</label>
+                <label>
+                      <input type="radio" name="說-差2" value="差">
+  差</label>
+              </font></td>
+              <td align="center"><font size="2">
+                <label>
+                      <input type="radio" name="讀-佳2" value="佳">
+  佳</label>
+                <label>
+                      <input type="radio" name="讀-普通2" value="普通">
+  普通</label>
+                <label>
+                      <input type="radio" name="說-差2" value="差">
+  差</label>
+              </font></td>
+              <td align="center"><font size="2">
+                <label>
+                      <input type="radio" name="寫-佳" value="佳">
+  佳</label>
+                <label>
+                      <input type="radio" name="寫-普通" value="普通">
+  普通</label>
+                <label>
+                      <input type="radio" name="寫-差2" value="差">
+  差</label>
+              </font></td>
+            </tr>
+            <tr>
+              <td align="center"><font size="2">
+                      <input name="語文能力3" type="text" id="語文能力3" size="15">
+              </font></td>
+              <td align="center"><p><font size="2">
+                  <label>
+                        <input type="radio" name="聽-佳3" value="佳">
+      佳</label>
+                  <label>
+                        <input type="radio" name="聽-普通" value="普通">
+      普通</label>
+                  <label>
+                        <input type="radio" name="聽-差3" value="差">
+      差</label>
+                  <br>
+                </font></p>
+              </td>
+              <td align="center"><font size="2">
+                <label>
+                      <input type="radio" name="說-佳3" value="佳">
+    佳</label>
+                <label>
+                      <input type="radio" name="說-普通3" value="普通">
+    普通</label>
+                <label>
+                      <input type="radio" name="說-差3" value="差">
+    差</label>
+              </font></td>
+              <td align="center"><font size="2">
+                <label>
+                      <input type="radio" name="讀-佳3" value="佳">
+    佳</label>
+                <label>
+                      <input type="radio" name="讀-普通3" value="普通">
+    普通</label>
+                <label>
+                      <input type="radio" name="說-差3" value="差">
+    差</label>
+              </font></td>
+              <td align="center"><font size="2">
+                <label>
+                      <input type="radio" name="寫-佳" value="佳">
+    佳</label>
+                <label>
+                      <input type="radio" name="寫-普通" value="普通">
+    普通</label>
+                <label>
+                      <input type="radio" name="寫-差3" value="差">
+    差</label>
+              </font></td>
+            </tr>
+          </table>
+          <table width="100%" border="1" align="center" cellpadding="2" cellspacing="0" bordercolor="82a0df">
+            <tr>
+              <td colspan="3" bgcolor="#CAE2FF"><div align="center"><font size="2">&nbsp;&nbsp;&nbsp;<font size="3"><strong>興 趣 嗜 好</strong></font></font></div></td>
+              <td colspan="4" bgcolor="#CAE2FF"><div align="center"><font size="2">&nbsp;</font><font size="2">&nbsp;</font><font size="2">&nbsp;</font><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;<font size="3"><strong>加
+                        入 學 會 社 團</strong></font></font></div></td>
+              </tr>
+            <tr>
+              <td colspan="3"><font size="2">&nbsp;
+                      <textarea name="興趣嗜好" cols="55" rows="3" id="興趣嗜好"></textarea>
+              </font><font size="2">&nbsp;</font></td>
+              <td colspan="4"><font size="2">
+                      <textarea name="加入學會社團" cols="55" rows="3" id="加入學會社團"></textarea>
+              </font></td>
+              </tr>
+          </table>
+          <table width="100%" border="1" align="center" cellpadding="2" cellspacing="0" bordercolor="82a0df">
+            <tr>
+              <td colspan="7" bgcolor="#CAE2FF"><div align="center"><font size="3"><strong>親
+                      屬 狀 況</strong></font></div>
+              </td>
+            </tr>
+            <tr>
+              <td><div align="center"><font size="2">姓 名</font></div>
+              </td>
+              <td><div align="center"><font size="2">關 係 </font></div>
+              </td>
+              <td><div align="center"><font size="2">年 齡</font></div>
+              </td>
+              <td><div align="center"><font size="2">教 育 程 度 </font></div>
+              </td>
+              <td width="94"><div align="center"><font size="2"></font></div>
+                  <div align="center"><font size="2"></font></div>
+                  <div align="center"><font size="2">職 業</font></div></td>
+              <td><div align="center"><font size="2">緊 急 連 絡 電 話</font></div></td>
+              </tr>
+            <tr>
+              <td align="center"><font size="2">
+                      <input name="親屬狀況-姓名1" type="text" id="親屬狀況-姓名1" size="15">
+              </font></td>
+              <td align="center"><font size="2">
+                      <input name="親屬狀況-關係1" type="text" id="親屬狀況-關係1" size="15">
+              </font></td>
+              <td align="center"><font size="2">
+                      <input name="親屬狀況-年齡1" type="text" id="親屬狀況-年齡1" size="15">
+              </font></td>
+              <td align="center"><font size="2">
+                      <input name="親屬狀況-教育程度1" type="text" id="親屬狀況-教育程度1" size="15">
+              </font></td>
+              <td align="center"><font size="2">
+                      <input name="親屬狀況-職業1" type="text" id="親屬狀況-職業1" size="10">
+              </font></td>
+              <td align="center"><font size="2">
+                      <input name="緊急TEL1" type="text" id="緊急TEL1" size="15">
+              </font></td>
+              </tr>
+            <tr>
+              <td align="center"><font size="2">
+                      <input name="親屬狀況-姓名2" type="text" id="親屬狀況-姓名2" size="15">
+              </font></td>
+              <td align="center"><font size="2">
+                      <input name="親屬狀況-關係2" type="text" id="親屬狀況-關係2" size="15">
+              </font></td>
+              <td align="center"><font size="2">
+                      <input name="親屬狀況-年齡2" type="text" id="親屬狀況-年齡2" size="15">
+              </font></td>
+              <td align="center"><font size="2">
+                      <input name="親屬狀況-教育程度2" type="text" id="親屬狀況-教育程度2" size="15">
+              </font></td>
+              <td align="center"><font size="2">
+                      <input name="親屬狀況-職業2" type="text" id="親屬狀況-職業2" size="10">
+              </font></td>
+              <td align="center"><font size="2">
+                      <input name="緊急TEL2" type="text" id="緊急TEL2" size="15">
+              </font></td>
+              </tr>
+            <tr>
+              <td align="center"><font size="2">
+                      <input name="親屬狀況-姓名3" type="text" id="親屬狀況-姓名3" size="15">
+              </font></td>
+              <td align="center"><font size="2">
+                      <input name="親屬狀況-關係3" type="text" id="親屬狀況-關係3" size="15">
+              </font></td>
+              <td align="center"><font size="2">
+                      <input name="親屬狀況-年齡3" type="text" id="親屬狀況-年齡3" size="15">
+              </font></td>
+              <td align="center"><font size="2">
+                      <input name="親屬狀況-教育程度3" type="text" id="親屬狀況-教育程度3" size="15">
+              </font></td>
+              <td align="center"><font size="2">
+                      <input name="親屬狀況-職業3" type="text" id="親屬狀況-職業3" size="10">
+              </font></td>
+              <td align="center"><font size="2">
+                      <input name="緊急TEL3" type="text" id="緊急TEL3" size="15">
+              </font></td>
+              </tr>
+            <tr>
+              <td align="center"><font size="2">
+                      <input name="親屬狀況-姓名4" type="text" id="親屬狀況-姓名4" size="15">
+              </font></td>
+              <td align="center"><font size="2">
+                      <input name="親屬狀況-關係4" type="text" id="親屬狀況-關係4" size="15">
+              </font></td>
+              <td align="center"><font size="2">
+                      <input name="親屬狀況-年齡4" type="text" id="親屬狀況-年齡4" size="15">
+              </font></td>
+              <td align="center"><font size="2">
+                      <input name="親屬狀況-教育程度4" type="text" id="親屬狀況-教育程度4" size="15">
+              </font></td>
+              <td align="center"><font size="2">
+                      <input name="親屬狀況-職業4" type="text" id="親屬狀況-職業4" size="10">
+              </font></td>
+              <td align="center"><font size="2">
+                      <input name="緊急TEL4" type="text" id="緊急TEL4" size="15">
+              </font></td>
+              </tr>
+          </table>
+          <table width="100%" border="1" align="center" cellpadding="2" cellspacing="0" bordercolor="82a0df">
+            <tr>
+              <td colspan="7" bgcolor="#CAE2FF"><div align="center"><font size="3"><strong>其
+                      他</strong></font></div>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2"><div align="left"><font size="2">是否曾至本公司面試？</font><br>
+              </div></td>
+              <td colspan="5"><p><font size="2">
+                <label>                </label>
+                <label>
+                        <input type="radio" name="是否曾至本公司面試" value="否">
+否</label>
+                <label>
+                        <input type="radio" name="是否曾至本公司面試" value="是">
+  是</label>
+                <label></label>
+              民國
+                  <select name="interview_date_y" >
+                  <option selected value=""></option>
+                  <option value="66">66</option>
+                  <option value="67">67</option>
+                  <option value="68">68</option>
+                  <option value="69">69</option>
+                  <option value="70">70</option>
+                  <option value="71">71</option>
+                  <option value="72">72</option>
+                  <option value="73">73</option>
+                  <option value="74">74</option>
+                  <option value="75">75</option>
+                  <option value="76">76</option>
+                  <option value="77">77</option>
+                  <option value="78">78</option>
+                  <option value="79">79</option>
+                  <option value="80">80</option>
+                  <option value="81">81</option>
+                  <option value="82">82</option>
+                  <option value="83">83</option>
+                  <option value="84">84</option>
+                  <option value="85">85</option>
+                  <option value="86">86</option>
+                  <option value="87">87</option>
+                  <option value="88">88</option>
+                  <option value="89">89</option>
+                  <option value="90">90</option>
+                  <option value="91">91</option>
+                  <option value="92">92</option>
+                  <option value="93">93</option>
+                  <option value="94">94</option>
+                  <option value="95">95</option>
+                  <option value="96">96</option>
+                  <option value="97">97</option>
+                  <option value="98">98</option>
+                  <option value="99">99</option>
+                  <option value="100">100</option>
+                </select>
+年
+<select name="interview_date_m" >
+                  <option selected value=""></option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                </select>
+月
+<select name="interview_date_d" >
+                  <option selected value=""></option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                  <option value="13">13</option>
+                  <option value="14">14</option>
+                  <option value="15">15</option>
+                  <option value="16">16</option>
+                  <option value="17">17</option>
+                  <option value="18">18</option>
+                  <option value="19">19</option>
+                  <option value="20">20</option>
+                  <option value="21">21</option>
+                  <option value="22">22</option>
+                  <option value="23">23</option>
+                  <option value="24">24</option>
+                  <option value="25">25</option>
+                  <option value="26">26</option>
+                  <option value="27">27</option>
+                  <option value="28">28</option>
+                  <option value="29">29</option>
+                  <option value="30">30</option>
+                  <option value="31">31</option>
+                </select>
+日</font> <font size="2">應徵項目
+                        <input name="是否曾至本公司面試-項目" type="text" id="是否曾至本公司面試-項目">
+</font></p>                </td>
+              </tr>
+            <tr>
+              <td colspan="2"><div align="left"><font size="2">如何得知本職缺？</font></div></td>
+              <td colspan="5"><p><font size="2">
+                <label>
+                <input type="radio" name="information" value="104 網站">
+  104 網站</label>
+                <label>
+                <input type="radio" name="information" value="報紙">
+                        雷科網站</label>
+                <label>
+                <input type="radio" name="information" value="本公司員工介紹">
+  本公司員工介紹</label>
+                        <input name="如何得知本職缺" type="text" id="如何得知本職缺">
+<label>
+                <input type="radio" name="information" value="其他">
+  其他</label>
+                        <input name="如何得知本職缺" type="text" id="如何得知本職缺">
+</font></p></td>
+              </tr>
+            <tr>
+              <td colspan="2"><div align="left"><font size="2">是否領有殘障手冊？</font><font size="2">&nbsp;</font></div></td>
+              <td><font size="2">
+                <label>                </label>
+                <label>
+                      <input type="radio" name="是否領有殘障手冊" value="是">
+是</label>
+                <label>
+                      <input type="radio" name="是否領有殘障手冊" value="否">
+否</label>
+              </font></td>
+              <td><font size="2">&nbsp;是否為原住民？</font></td>
+              <td colspan="3"><font size="2">
+                <label>
+                      <input type="radio" name="是否為原住民" value="是">
+是</label>
+                <label>
+                      <input type="radio" name="是否為原住民" value="否">
+否</label>
+</font><font size="2">&nbsp;</font><font size="2">&nbsp;</font></td>
+              </tr>
+            <tr>
+              <td colspan="2"><font size="2">是否已有親屬或朋友任職於本公司？&nbsp;</font><font size="2">&nbsp;</font></td>
+              <td colspan="5"><font size="2">
+                <label>
+                      <input type="radio" name="是否已有親屬或朋友任職於本公司" value="否" onChange="employee_c1()">
+否</label>
+                <label>
+                <input type="radio" name="employee" value="是">
+是</label>
+姓名：                
+                      <input name="是否已有親屬或朋友任職於本公司-姓名" type="text" id="是否已有親屬或朋友任職於本公司-姓名" onChange="recommend_1_c()">
+</font></td>
+              </tr>
+          </table>
+          <table width="100%" border="1" align="center" cellpadding="2" cellspacing="0" bordercolor="82a0df">
+            <tr>
+              <td colspan="7" bgcolor="#CAE2FF"><div align="center"><font size="3"><strong>【推
+                      薦 人】願 意 推 薦 您 並 接 受 本 公 司 聯 絡 者</strong></font></div>
+              </td>
+            </tr>
+            <tr>
+              <td><div align="center"><font size="2">推薦人(一)
+                </font>
+              </div>
+              </td>
+              <td colspan="2">
+                <div align="left">
+                        <input name="推薦人1" type="text" id="推薦人1" readonly>
+                </div></td>
+              <td><div align="center"><font size="2">推薦人(二) </font> </div>
+              </td>
+              <td colspan="3"><input name="推薦人2" type="text" id="推薦人2"></td>
+              </tr>
+            <tr>
+              <td><font size="2">服務單位</font></td>
+              <td colspan="2"><div align="left">
+                        <input name="推薦人服務單位1" type="text" id="推薦人服務單位1">
+              </div></td>
+              <td><font size="2">服務單位</font></td>
+              <td colspan="3"><input name="推薦人服務單位2" type="text" id="推薦人服務單位2"></td>
+              </tr>
+            <tr>
+              <td><font size="2">職銜</font></td>
+              <td colspan="2"><div align="left">
+                        <input name="職銜1" type="text" id="職銜1">
+              </div></td>
+              <td><font size="2">職銜</font></td>
+              <td colspan="3"><input name="職銜2" type="text" id="職銜2"></td>
+              </tr>
+            <tr>
+              <td><font size="2">電話或E-mail信箱</font></td>
+              <td colspan="2"><div align="left">
+                        <input name="電話或E-mail信箱1" type="text" id="電話或E-mail信箱1">
+              </div></td>
+              <td><font size="2">電話或E-mail信箱</font></td>
+              <td colspan="3"><input name="電話或E-mail信箱2" type="text" id="電話或E-mail信箱2"></td>
+              </tr>
+            <tr>
+              <td colspan="7" bgcolor="#CAE2FF"><div align="center"><font size="3"><strong>薪
+                      資</strong></font></div>
+              </td>
+            </tr>
+            <tr>
+              <td><div align="left"><font size="2">希望待遇</font></div></td>
+              <td colspan="2">
+                <div align="left">
+                        <input name="希望待遇" type="text" id="希望待遇">
+                </div>
+              </td>
+              <td><div align="left"><font size="2">可接受之最低待遇</font> </div></td>
+              <td colspan="3"><input name="可接受之最低待遇" type="text" id="可接受之最低待遇">
+              </td>
+            </tr>
+            <tr>
+              <td><div align="left"><font size="2">預定到職日</font></div></td>
+              <td colspan="6">
+                <div align="left">
+              民國
+                        <select name="預定到職年" id="預定到職年" >
+                          <option value="96">96</option>
+                          <option value="97">97</option>
+                          <option value="98">98</option>
+                          <option value="99">99</option>
+                          <option value="100">100</option>
+                          <option value="101">101</option>
+                          <option value="102">102</option>
+                          <option value="103">103</option>
+                          <option value="104">104</option>
+                          <option value="105">105</option>
+                        </select>
+年
+                        <select name="預定到職月" id="預定到職月" >
+                          <option selected value=""></option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                </select>
+月
+                        <select name="預定到職日" id="預定到職日" >
+                          <option selected value=""></option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                  <option value="13">13</option>
+                  <option value="14">14</option>
+                  <option value="15">15</option>
+                  <option value="16">16</option>
+                  <option value="17">17</option>
+                  <option value="18">18</option>
+                  <option value="19">19</option>
+                  <option value="20">20</option>
+                  <option value="21">21</option>
+                  <option value="22">22</option>
+                  <option value="23">23</option>
+                  <option value="24">24</option>
+                  <option value="25">25</option>
+                  <option value="26">26</option>
+                  <option value="27">27</option>
+                  <option value="28">28</option>
+                  <option value="29">29</option>
+                  <option value="30">30</option>
+                  <option value="31">31</option>
+                </select>
+日
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="7" bgcolor="#CAE2FF"><div align="center"><font size="3"></font></div>
+              </td>
+            </tr>
+            <tr>
+              <td><div align="left"></div>
+              </td>
+              <td colspan="6">
+                <div align="left"> </div>
+                      <div align="left">              </div>                </td>
+              </tr>
+          </table></td>
+        </tr>
+        <tr>
+          <td height="18" colspan="2" valign="top"><div align="center">Copyrightc 
+                  2007 雷科股份有限公司 著作權所有 Best Viewed in LASER TEK.</div>
+          </td>
+        </tr>
+        <tr>
+          <td width="197" height="16" valign="top">&nbsp;</td>
+          <td width="621" align="left" valign="top">&nbsp;</td>
+        </tr>
+      </table></td>
+      <td width="10" background="../imageV2/shadow_08.html"><img src="../imageV2/space_12.html" width="10" height="10"></td>
+    </tr>
+    <tr>
+      <td height="9" background="../imageV2/shadow_12.html"><img src="../imageV2/space_12.html" width="10" height="10"></td>
+      <td background="../imageV2/shadow_13.html"><div align="center"><img src="../imageV2/space_12.html" width="17" height="5"></div>
+      </td>
+      <td background="../imageV2/shadow_15.html"><img src="../imageV2/space_12.html" width="10" height="10"></td>
+    </tr>
+  </table>
+</div>
+            
+  <p align="center">&nbsp;</p>
+<div align="center">
+  <input name="送出" type="submit" class="groovybutton" onClick="check()" value="傳送">
+</form>
+</body>
+
+<!-- Mirrored from lasertek2.cocker.com.tw/upload/hr.htm by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 14 Nov 2014 06:31:07 GMT -->
+</html>

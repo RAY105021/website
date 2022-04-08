@@ -1,0 +1,166 @@
+/*
+Author: Craig Erskine
+Description: Dynamic Menu System - Vertical
+*/
+
+ul#navmenu-v,ul#navmenu-v li,ul#navmenu-v ul {
+ width: 300px; /* Menu Width */
+ margin: 0;
+ list-style: none;
+}
+
+ul#navmenu-v li { float: left; position: relative;  width: 100%; clear:left; line-height:0pt; margin-top:-5px \9;}
+ul#navmenu-v li.iehover { z-index: 1000;  /* IE z-index bugfix */ }
+
+ul#navmenu-v ul{
+ display: block;
+ position: relative;
+ top: 5px;
+ left: 0%;
+ z-index: 9999;
+}
+
+ul#navmenu-v ul ul{
+ padding-top:4px;
+}
+
+/* Root Menu */
+ul#navmenu-v a {
+/*
+ border-top: 1px solid #FFF;
+ border-right: 1px solid #FFF;
+*/
+ padding: 6px;
+ display: block;
+ /*
+ 	background: #DDD;
+	color: #666;
+	text-decoration: none;
+	background-image:url(/images/menu/01_bg.png);
+ */
+ color: #888888;
+ font: bold 10pt Arial, sans-serif;
+ text-decoration: none;
+}
+
+/* Root Menu Hover Persistence */
+ul#navmenu-v a:hover,ul#navmenu-v li:hover a,ul#navmenu-v li.iehover a {
+ /*
+ 	background: #CCC;
+ 	color: #FFF;
+	background-image:url(/images/menu/01_bg.png);
+ */
+ color: #888888;
+}
+
+/* 2nd Menu */
+ul#navmenu-v li:hover li a,ul#navmenu-v li.iehover li a {
+ float: none;
+ /*
+ 	background: #CCC;
+ 	background-image:url(/images/menu/01_bg.png);
+ */
+ color: #888888;
+}
+
+/* 2nd Menu Hover Persistence */
+ul#navmenu-v li:hover li a:hover,ul#navmenu-v li:hover li:hover a,ul#navmenu-v li.iehover li a:hover,ul#navmenu-v li.iehover li.iehover a {
+ /*
+ 	background: #AAA;
+ 	background-image:url(/images/menu/01_bg.png);
+ */
+ color: #222222;
+}
+
+/* 3rd Menu */
+ul#navmenu-v li:hover li:hover li a,ul#navmenu-v li.iehover li.iehover li a {
+ /*
+ 	background: #AAA;
+	background-image:url(/images/menu/02_bg.png);
+ */
+ color: #0591CE;
+}
+
+/* 3rd Menu Hover Persistence */
+ul#navmenu-v li:hover li:hover li a:hover,ul#navmenu-v li:hover li:hover li:hover a,ul#navmenu-v li.iehover li.iehover li a:hover,ul#navmenu-v li.iehover li.iehover li.iehover a {
+ /*
+ 	background: #888;
+	background-image:url(/images/menu/02_bg.png);
+ */
+ color: #00689F;
+}
+
+/* 4rd Menu */
+ul#navmenu-v li:hover li:hover li:hover li a,ul#navmenu-v li.iehover li.iehover li.iehover li a {
+ /*
+ 	background: #AAA;
+ 	background-image:url(/images/menu/03_bg.png);
+ */
+ color: #0591CE;
+}
+
+/* 4rd Menu Hover Persistence */
+ul#navmenu-v li:hover li:hover li:hover li a:hover,ul#navmenu-v li:hover li:hover li:hover li:hover a,ul#navmenu-v li.iehover li.iehover li.iehover li a:hover,ul#navmenu-v li.iehover li.iehover li.iehover li.iehover a {
+ /*
+ 	background: #666;
+	background-image:url(/images/menu/03_bg.png);
+ */
+ color: #00689F;
+}
+
+/* 5rd Menu */
+ul#navmenu-v li:hover li:hover li:hover li:hover li a,ul#navmenu-v li.iehover li.iehover li.iehover li.iehover li a {
+ /*
+ 	background: #888;
+	background-image:url(/images/menu/04_bg.png);
+ */
+ 
+ color: #0591CE;
+}
+
+/* 5rd Menu Hover Persistence */
+ul#navmenu-v li:hover li:hover li:hover li:hover li a:hover,ul#navmenu-v li:hover li:hover li:hover li:hover li:hover a,ul#navmenu-v li.iehover li.iehover li.iehover li.iehover li a:hover,ul#navmenu-v li.iehover li.iehover li.iehover li.iehover li.iehover a {
+ /*
+ 	background: #444;
+	background-image:url(/images/menu/04_bg.png);
+ */
+ color: #00689F;
+}
+
+/* 6th Menu */
+ul#navmenu-v li:hover li:hover li:hover li:hover li:hover li a,ul#navmenu-v li.iehover li.iehover li.iehover li.iehover li.iehover li a {
+ /*
+ 	background: #222;
+	background-image:url(/images/menu/05_bg.png);
+ */
+ color: #0591CE;
+}
+
+/* 6th Menu Hover */
+ul#navmenu-v li:hover li:hover li:hover li:hover li:hover li a:hover,ul#navmenu-v li.iehover li.iehover li.iehover li.iehover li.iehover li a:hover {
+ /*
+ 	background: #444;
+	background-image:url(/images/menu/05_bg.png);
+ */
+ color: #00689F;
+}
+
+/* Hover Function - Do Not Move */
+ul#navmenu-v li:hover ul ul,
+ul#navmenu-v li:hover ul ul ul,
+ul#navmenu-v li:hover ul ul ul ul,
+ul#navmenu-v li:hover ul ul ul ul ul
+,ul#navmenu-v li.iehover ul ul
+,ul#navmenu-v li.iehover ul ul ul
+,ul#navmenu-v li.iehover ul ul ul ul
+,ul#navmenu-v li.iehover ul ul ul ul ul { display: block; }
+ul#navmenu-v li:hover ul,
+ul#navmenu-v ul li:hover ul,
+ul#navmenu-v ul ul li:hover ul,
+ul#navmenu-v ul ul ul li:hover ul,
+ul#navmenu-v ul ul ul ul li:hover ul,
+ul#navmenu-v li.iehover ul,
+ul#navmenu-v ul li.iehover ul,
+ul#navmenu-v ul ul li.iehover ul,
+ul#navmenu-v ul ul ul li.iehover ul,
+ul#navmenu-v ul ul ul ul li.iehover ul { display: block; }

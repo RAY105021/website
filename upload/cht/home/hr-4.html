@@ -1,0 +1,288 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+<!-- saved from url=(0022)http://internet.e-mail -->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html>
+<!-- Mirrored from lasertek2.cocker.com.tw/upload/hr-4.htm by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 14 Nov 2014 06:31:05 GMT -->
+<head>
+<style type="text/css">
+
+input.groovybutton
+{
+   font-size:12px;
+   font-family:Verdana,sans-serif;
+   font-weight:bold;
+   color:#888888;
+   width:100px;
+   height:25px;
+   background-color:#EEEEEE;
+   border-style:solid;
+   border-color:#BBBBBB;
+   border-width:1px;
+}
+
+</style>
+<Script Language="VBScript"> 
+dim blnError, h_blnError, u_blnError, g_blnError, o_blnError
+blnError_name = false
+blnError_id = false
+blnError_tel = false
+h_blnError = false
+c_blnError = false
+u_blnError = false
+g_blnError = false
+o_blnError = false
+blnError_school = false
+
+sub name_ch_b1()
+    if document.all("name_ch").value = "" then
+       msgbox "請輸您的大名",48,"警告"
+       blnError_name = true
+    else
+       blnError_name = false   
+    end if
+end sub
+sub id_no_b1()
+if len( document.all("id_no").value) <> 10 then
+   msgbox "請輸入正確的身分證字號格式",48,"警告"
+   blnError_id = true
+else
+   if IsNumeric(left(document.all("id_no").value,1)) then
+      msgbox "請輸入正確的身分證字號格式",48,"警告"
+      blnError_id = true
+   else
+      if IsNumeric(right(document.all("id_no").value,9)) then
+         document.all("id_no").value = Ucase(document.all("id_no").value)
+         blnError_id = false   
+      else
+         msgbox "請輸入正確的身分證字號格式",48,"警告"
+         blnError_id = true
+      end if
+   end if
+end if
+end sub
+sub tel_b1()
+    if document.all("tel_day").value = "" and document.all("tel_night").value = "" and document.all("mobile").value = "" then
+       msgbox "請輸入任一聯絡電話",48,"警告"
+       blnError_tel = true
+    else
+       blnError_tel = false   
+    end if
+end sub
+sub address_b1()
+if document.all("address_choice").checked = true then
+   document.all("address_2").value = document.all("address_1").value
+end if
+end sub
+sub employee_c1()
+    document.all("recommend_0").value = ""
+    document.all("recommend_1").value = ""
+    document.all("recommend_2").value = ""
+    document.all("service_1").value = ""
+    document.all("service_2").value = ""
+    document.all("title_1").value = ""
+    document.all("title_2").value = ""
+    document.all("email_1").value = ""
+    document.all("email_2").value = ""
+end sub
+sub recommend_1_c()
+    document.all("recommend_1").value = document.all("recommend_0").value
+end sub
+sub school_b1()
+if document.all("high_school").value <> "" then
+h_status = false
+h_time = false
+     if document.all("h_complete_status")(0).checked or document.all("h_complete_status")(1).checked  then
+        h_status = false
+     else
+        msgbox "請輸入就讀的高中是否畢業",48,"警告"
+        h_status = true
+     end if
+     if document.all("h_time")(0).checked or document.all("h_time")(1).checked  then
+        h_time = false
+     else
+        msgbox "請輸入就讀的高中為日間部或夜間部",48,"警告"
+        h_time = true
+     end if
+     if h_status = false and h_time = false then
+        h_blnError = false
+     else
+        h_blnError = true
+     end if
+else
+   h_blnError = false
+end if
+if document.all("college").value <> "" then
+c_status = false
+c_time = false
+     if document.all("c_complete_status")(0).checked or document.all("c_complete_status")(1).checked  then
+        c_status = false
+     else
+        msgbox "請輸入就讀的專科是否畢業",48,"警告"
+        c_status = true
+     end if
+     if document.all("c_time")(0).checked or document.all("c_time")(1).checked  then
+        c_time = false
+     else
+        msgbox "請輸入就讀的專科為日間部或夜間部",48,"警告"
+        c_time = true
+     end if
+     if c_status = false and c_time = false then
+        c_blnError = false
+     else
+        c_blnError = true
+     end if
+else
+   c_blnError = false
+end if
+if document.all("university").value <> "" then
+u_status = false
+u_time = false
+     if document.all("u_complete_status")(0).checked or document.all("u_complete_status")(1).checked  then
+        u_status = false
+     else
+        msgbox "請輸入就讀的大學是否畢業",48,"警告"
+        u_status = true
+     end if
+     if document.all("u_time")(0).checked or document.all("u_time")(1).checked  then
+        u_time = false
+     else
+        msgbox "請輸入就讀的大學為日間部或夜間部",48,"警告"
+        u_time = true
+     end if
+     if u_status = false and u_time = false then
+        u_blnError = false
+     else
+        u_blnError = true
+     end if
+else
+   u_blnError = false
+end if
+if document.all("graduated").value <> "" then
+g_status = false
+g_time = false
+     if document.all("g_complete_status")(0).checked or document.all("g_complete_status")(1).checked  then
+        g_status = false
+     else
+        msgbox "請輸入就讀的研究所是否畢業",48,"警告"
+        g_status = true
+     end if
+     if document.all("g_time")(0).checked or document.all("g_time")(1).checked  then
+        g_time = false
+     else
+        msgbox "請輸入就讀的研究所為日間部或夜間部",48,"警告"
+        g_time = true
+     end if
+     if g_status = false and g_time = false then
+        g_blnError = false
+     else
+        g_blnError = true
+     end if
+else
+   g_blnError = false
+end if
+
+if h_blnError = false and c_blnError = false and u_blnError = false and g_blnError = false then
+   blnError_school = false
+else
+  blnError_school = true
+end if
+end sub
+</script>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=big5">
+<title>線上履歷表</title>
+</head>
+<body>
+<Script Language="VBScript"> 
+
+function check()
+
+call school_b1()
+if blnError_school = true then
+   window.event.returnvalue=false
+end if
+call name_ch_b1()
+if blnError_name = true then
+   window.event.returnvalue=false
+end if
+call id_no_b1()
+if blnError_id = true then
+   window.event.returnvalue=false
+end if
+call tel_b1()
+if blnError_tel = true then
+   window.event.returnvalue=false
+end if
+
+if blnError_id = true or blnError_name = true or blnError_tel = true or blnError_school = true then
+   window.event.returnvalue=false
+else
+   Response = msgbox("是否確定送出履歷",vbOKCancel)
+   if Response = vbOK then
+      form1.submit
+   end if
+end if
+end function
+
+
+</script>
+<form action="http://lasertek2.cocker.com.tw/upload/hr.htm" enctype="text/plain" name="form1" target="_self">
+  <div align="center">
+  <table width="70%" align="center" cellpadding="0" cellspacing="0">
+    <tr>
+      <td width="10" background="../imageV2/shadow_06.html"><img src="../imageV2/space_12.html" width="10" height="10"></td>
+      <td width="819"><table align="center" border="0" cellpadding="0" cellspacing="0" width="90%">
+        <tbody>
+          <tr>
+            <td><p><strong>雷科股份有限公司個人資料使用說明 </strong></p>
+              <p>此聲明確保本公司有關收集、使用個人資料的目的皆根據《個人資料保護法》及其使用條例的規定所辦理。 </p>
+              <p>簽署人在此所提交的個人資料，雷科股份有限公司及其所有關係企業只會用作與公司經營直接有關的用途(包含但不限於新進人員遴選、業務服務、設備維修服務等)。 <br>
+                本公司會嚴格將簽署人之個人資料保密，並根據上述用途之說明使用，或獲得簽署人同意或按法律規定要求之情況下被披露及使用，保留至貫徹上述用途或依法律規定所需的時間為止。 <br>
+                本公司可就上文所列的有關用途，把所蒐集的簽署人個人資料提供予本公司之供應商、承包商、代理商及其他網絡供應商。在此情況下，上述的第三方皆不可利用簽署人個人資料作指定使用範圍以外之用途。 <br>
+                簽署人有權要求查閱/更正/刪除本公司持有簽署人的個人資料。簽署人需以書面作出此要求，並以郵遞或傳真方式送交： </p>
+              <p>雷科股份有限公司 <br>
+                高雄市前鎮區新生路248之39號 <br>
+                電話：(07)8159877<br>
+                傳真：(07)8156711 <br>
+                本公司有權就處理任何查閱資料的要求收取合理費用。 </p>
+              <p>簽署人可自願向本公司提交個人資料，但若選擇不向我們提供在此所需的全部資料或所提供的資料不正確，本公司可能無法處理或協助回應您的意見與要求。 </p>
+              <p>&nbsp;</p></td>
+          </tr>
+        </tbody>
+      </table>
+        <br>
+        <table align="center" border="0" cellpadding="0" cellspacing="0" width="90%">
+          <tbody>
+            <tr>
+              <td><table border="0" width="100%">
+                <tbody>
+                  <tr>
+                    <td width="85%"><input name="checkbox" id="chkAgree" onClick="document.getElementById('btnAgree').disabled = (document.getElementById('chkAgree').checked ? '' : 'disabled');" type="checkbox">
+                      我已閱讀並且接受上述同意書內容</td>
+                    <td align="right" width="15%"></td>
+                  </tr>
+                </tbody>
+              </table></td>
+            </tr>
+          </tbody>
+        </table></td>
+      <td width="10" background="../imageV2/shadow_08.html"><img src="../imageV2/space_12.html" width="10" height="10"></td>
+    </tr>
+    <tr>
+      <td height="9" background="../imageV2/shadow_12.html"><img src="../imageV2/space_12.html" width="10" height="10"></td>
+      <td background="../imageV2/shadow_13.html"><div align="center"><img src="../imageV2/space_12.html" width="17" height="5"></div>
+      </td>
+      <td background="../imageV2/shadow_15.html"><img src="../imageV2/space_12.html" width="10" height="10"></td>
+    </tr>
+  </table>
+</div>
+            
+  <p align="center">&nbsp;</p>
+<div align="center">
+<input name="送出" type="submit" class="groovybutton" onClick="check()" value="同意">
+</form>
+</body>
+
+<!-- Mirrored from lasertek2.cocker.com.tw/upload/hr-4.htm by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 14 Nov 2014 06:31:07 GMT -->
+</html>
